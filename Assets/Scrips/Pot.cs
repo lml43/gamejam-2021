@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pot : MonoBehaviour
 {
+    public float inactiveAfter = .3f;
+
     private Animator anim;
     private GameObject item;
 
@@ -23,7 +25,7 @@ public class Pot : MonoBehaviour
     }
 
     IEnumerator breakCo() {
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(inactiveAfter);
         this.gameObject.SetActive(false);
         if (item != null) {
             item.SetActive(true);

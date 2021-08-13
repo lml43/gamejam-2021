@@ -12,10 +12,12 @@ GameObject:
   - component: {fileID: 3338927428074091008}
   - component: {fileID: 3338927428074091009}
   - component: {fileID: 3338927428074091021}
-  - component: {fileID: 3338927428074091010}
-  - component: {fileID: 3338927428074091020}
   - component: {fileID: 3338927428074091023}
   - component: {fileID: 3338927428074091022}
+  - component: {fileID: 2971511296864529934}
+  - component: {fileID: 141866408373921963}
+  - component: {fileID: 3498043802736890631}
+  - component: {fileID: 3047843038136804076}
   m_Layer: 0
   m_Name: Log
   m_TagString: Enemy
@@ -31,7 +33,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3338927428074091014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34.319283, y: 0.18083167, z: 7.5936313}
+  m_LocalPosition: {x: 34.319283, y: 0.18083167, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -128,55 +130,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &3338927428074091010
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3338927428074091014}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0049652457, y: -0.49958026}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 2, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6620599, y: 0.50127816}
-  m_EdgeRadius: 0
---- !u!114 &3338927428074091020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3338927428074091014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5024e44b7231b4a498ae46a15fd8dd3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentState: 0
-  health: 0
-  enermyName: Linh The Log
-  baseAttack: 1
-  moveSpeed: 1.5
-  maxHealth: {fileID: 11400000, guid: 816b23927e91d452fa93539121405ca5, type: 2}
-  target: {fileID: 0}
-  homePosition: {x: 0, y: 0, z: 0}
-  chaseRadius: 5
-  attackRadius: 1.2
-  anim: {fileID: 0}
 --- !u!61 &3338927428074091023
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -217,4 +170,82 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 2
   knockTime: 0.2
-  damage: 50
+  damage: 30
+--- !u!114 &2971511296864529934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338927428074091014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &141866408373921963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338927428074091014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0de3d2be4bc428b83a2e48915e91c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 1
+  baseAttack: 1
+  moveSpeed: 20
+  maxHealth: {fileID: 11400000, guid: 816b23927e91d452fa93539121405ca5, type: 2}
+--- !u!114 &3498043802736890631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338927428074091014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5713cc11377f9446f896f1b19e4aaa23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: {fileID: 11400000, guid: 5350efb374f654db58cc036ab90ed4f5, type: 2}
+  nextWaypointDistance: 1
+  chaseRadius: 5
+  attackRadius: 1.2
+  startWaitTime: 1.5
+  moveSpots: []
+--- !u!58 &3047843038136804076
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3338927428074091014}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 6b6c499999b8f4e7199e6f00a5911d92, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.014564514, y: -0.46125245}
+  serializedVersion: 2
+  m_Radius: 0.3202591

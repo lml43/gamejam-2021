@@ -14,14 +14,14 @@ public class Enemy : MonoBehaviour
 {
 
     public EnemyState currentState;
-    public float health;
-    public string enermyName;
     public int baseAttack;
     public float moveSpeed;
     public FloatValue maxHealth;
 
-    private void Awake() {
-        health = maxHealth.runtimeValue;
+    public void ChangeState(EnemyState newState) {
+        if (newState != currentState) {
+            currentState = newState;
+        }
     }
 
     public void Knock(Rigidbody2D myRb, float knockTime, float damage) {
@@ -30,9 +30,9 @@ public class Enemy : MonoBehaviour
     }
 
     private void TakeDamage(float damage) {
-        health -= damage;
+        maxHealth.runtimeValue -= damage;
 
-        if (health <= 0) {
+        if (maxHealth.runtimeValue <= 0) {
             this.gameObject.SetActive(false);
         }
     }
