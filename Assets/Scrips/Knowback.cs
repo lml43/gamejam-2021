@@ -18,16 +18,17 @@ public class Knowback : MonoBehaviour
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
 
             if (hit != null) {
-                bool isEnemy = other.gameObject.CompareTag("Enemy");
+                bool isOtherEnemy = other.gameObject.CompareTag("Enemy");
+                bool isOtherPlayer = other.gameObject.CompareTag("Player");
                 
                 Vector2 difference = hit.transform.position - transform.position;
                 difference = difference.normalized * thrust;
                 hit.AddForce(difference, ForceMode2D.Impulse);
 
-                if(isEnemy) {
+                if(isOtherEnemy && gameObject.CompareTag("Player")) {
                     hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
                     other.GetComponent<Enemy>().Knock(hit, knockTime, damage);
-                } else if (other.GetComponent<PlayerManager>().currentState.runtimeValue != PlayerState.stagger){
+                } else if (isOtherPlayer && other.GetComponent<PlayerManager>().currentState.runtimeValue != PlayerState.stagger){
                     other.GetComponent<PlayerManager>().currentState.runtimeValue = PlayerState.stagger;
                     other.GetComponent<PlayerManager>().Knock(knockTime, damage);
                 }

@@ -57,8 +57,6 @@ public class EnemyAI : MonoBehaviour
         if (!p.error) {
             path = p;
             currentWaypoint = 0;
-            // ChangeTarget(isChasing, true);
-            enemy.ChangeState(EnemyState.walk);
         }
     }
 
@@ -72,6 +70,7 @@ public class EnemyAI : MonoBehaviour
         if (currentWaypoint >= path.vectorPath.Count) {
             isChasing = false;
             ChangeTarget(isChasing, true);
+            enemy.ChangeState(EnemyState.walk);
             return;
         }
 
@@ -108,8 +107,6 @@ public class EnemyAI : MonoBehaviour
     private void ChangeTarget(bool isChasing, bool updateSpot) {
 
         if (isChasing) {
-            Debug.Log("Change Target to Player");
-
             target = player;
             return;
         }

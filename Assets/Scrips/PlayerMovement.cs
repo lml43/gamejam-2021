@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -33,9 +31,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (Input.GetButtonDown("Attack") && currentState.runtimeValue != PlayerState.attack && currentState.runtimeValue != PlayerState.stagger) {
+        if (Input.GetButtonDown("Attack") && currentState.runtimeValue != PlayerState.attack && currentState.runtimeValue != PlayerState.stagger && currentState.runtimeValue != PlayerState.untouchable) {
             StartCoroutine(AttackCo());
-        } else if (currentState.runtimeValue == PlayerState.walk || currentState.runtimeValue == PlayerState.idle) {
+        } else if (currentState.runtimeValue == PlayerState.walk || currentState.runtimeValue == PlayerState.idle || currentState.runtimeValue == PlayerState.untouchable) {
             UpdateAnimationAndMove();
         }
     }

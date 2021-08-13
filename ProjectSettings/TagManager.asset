@@ -17,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Collision
+  - Enemy
+  - Player
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4267210951
+    locked: 0
+  - name: ForeGround
+    uniqueID: 90859485
     locked: 0

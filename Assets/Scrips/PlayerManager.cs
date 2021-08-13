@@ -12,9 +12,11 @@ public class PlayerManager : MonoBehaviour
 
     private bool isProtected = false;
     private Rigidbody2D myRigidbody;
+    private SpriteRenderer renderer;
 
     void Start() {
         myRigidbody = GetComponent<Rigidbody2D>();
+        renderer = GetComponent<SpriteRenderer>();
     }
     
     void OnTriggerEnter2D(Collider2D other) {
@@ -27,6 +29,15 @@ public class PlayerManager : MonoBehaviour
             other.gameObject.SetActive(false);
             isProtected = true;
         }
+    }
+
+    public void Blur() {
+        renderer.color = new Color(1f,1f,1f,.5f);
+        currentState.runtimeValue = PlayerState.untouchable;
+        
+        Physics2D.IgnoreLayerCollision(9, 10);
+
+        StartCoroutine(UnBlur(untouchableTime));
     }
 
     public void Knock(float knockTime, int damage) {
@@ -46,10 +57,17 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    private IEnumerator UnBlur(float untouchableTime) {
+        yield return new WaitForSeconds(untouchableTime);
+        currentState.runtimeValue = PlayerState.idle;
+        renderer.color = new Color(1f,1f,1f,1f);
+        Physics2D.IgnoreLayerCollision(9, 10, false);
+    }
+
     private IEnumerator KnockCo(float knockTime) {
         yield return new WaitForSeconds(knockTime);
         myRigidbody.velocity = Vector2.zero;
-        currentState.runtimeValue = PlayerState.idle;
+        Blur();
     }
 
     private void IncreaseHealth(int value) {

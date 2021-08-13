@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 141866408373921963}
   - component: {fileID: 3498043802736890631}
   - component: {fileID: 3047843038136804076}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Log
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971099da5b9014009b9ac1ccab8c1294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 2
+  thrust: 5
   knockTime: 0.2
   damage: 30
 --- !u!114 &2971511296864529934
@@ -229,9 +229,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {fileID: 11400000, guid: 5350efb374f654db58cc036ab90ed4f5, type: 2}
   nextWaypointDistance: 1
-  chaseRadius: 5
-  attackRadius: 1.2
-  startWaitTime: 1.5
+  chaseRadius: 6
+  attackRadius: 1
+  startWaitTime: 2
   moveSpots: []
 --- !u!58 &3047843038136804076
 CircleCollider2D:

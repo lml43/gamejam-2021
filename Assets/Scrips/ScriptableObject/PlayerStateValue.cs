@@ -8,6 +8,7 @@ public enum PlayerState
     attack,
     stagger,
     idle,
+    untouchable
 }
 
 [CreateAssetMenu]
