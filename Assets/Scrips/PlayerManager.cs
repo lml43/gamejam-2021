@@ -10,13 +10,26 @@ public class PlayerManager : MonoBehaviour
     public int heartValue;
     public float untouchableTime;
 
+    [Header("Items")]
+	[Space]
+    public GameObject itemChemical;
+    public GameObject itemRuler;
+    public GameObject itemPipe;
+    public GameObject itemFire;
+    public GameObject itemGun;
+
     private bool isProtected = false;
     private Rigidbody2D myRigidbody;
     private SpriteRenderer renderer;
+    private Animator anim;
+    private int itemCount;
+    private List<GameObject> itemList;
 
     void Start() {
+        itemList = new List<GameObject>();
         myRigidbody = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
     
     void OnTriggerEnter2D(Collider2D other) {
@@ -25,9 +38,30 @@ public class PlayerManager : MonoBehaviour
             IncreaseHealth(heartValue);
         }
         
-        if (other.gameObject.CompareTag("Mask")) {
+        // if (other.gameObject.CompareTag("Mask")) {
+        //     other.gameObject.SetActive(false);
+        //     isProtected = true;
+        // }
+
+        if (other.gameObject.CompareTag("Ruler")) {
             other.gameObject.SetActive(false);
-            isProtected = true;
+            anim.SetBool("hasRuler", true);
+            ShowItem(itemRuler);
+        }
+
+        if (other.gameObject.CompareTag("Chemical")) {
+            other.gameObject.SetActive(false);
+            ShowItem(itemChemical);
+        }
+
+        if (other.gameObject.CompareTag("Pipe")) {
+            other.gameObject.SetActive(false);
+            ShowItem(itemPipe);
+        }
+
+        if (other.gameObject.CompareTag("FireExtinguisher")) {
+            other.gameObject.SetActive(false);
+            ShowItem(itemFire);
         }
     }
 
@@ -54,6 +88,37 @@ public class PlayerManager : MonoBehaviour
             StartCoroutine(KnockCo(knockTime));
         } else {
             this.gameObject.SetActive(false);
+        }
+    }
+
+    private void ShowItem(GameObject item) {
+        itemList.Add(item);
+
+        Vector3 pos = new Vector3(49 * (itemList.Count - 3), 0, 0);
+        item.GetComponent<RectTransform>().localPosition = pos;
+
+        item.SetActive(true);
+        CheckGunMaterials();
+    }
+
+    private void CheckGunMaterials() {
+        if (itemList.Contains(itemChemical) && itemList.Contains(itemPipe) && itemList.Contains(itemFire)) {
+            Debug.Log("Hello");
+
+            itemList.Remove(itemChemical);
+            itemList.Remove(itemPipe);
+            itemList.Remove(itemFire);
+            itemChemical.SetActive(false);
+            itemPipe.SetActive(false);
+            itemFire.SetActive(false);
+
+            itemList.Add(itemGun);
+            itemGun.SetActive(true);
+
+            for (int i = 0; i < itemList.Count; i++) {
+                Vector3 pos = new Vector3(49 * (i - 2), 0, 0);
+                itemList[i].GetComponent<RectTransform>().localPosition = pos;
+            }
         }
     }
 

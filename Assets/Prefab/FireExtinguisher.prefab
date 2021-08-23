@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 9024956507602865294}
   - component: {fileID: 4291595613529257548}
   m_Layer: 0
-  m_Name: Coin
-  m_TagString: Mask
+  m_Name: FireExtinguisher
+  m_TagString: FireExtinguisher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

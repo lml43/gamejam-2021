@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Item
   - Mask
+  - Ruler
+  - Chemical
+  - Pipe
   layers:
   - Default
   - TransparentFX
