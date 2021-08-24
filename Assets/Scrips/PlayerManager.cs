@@ -12,11 +12,7 @@ public class PlayerManager : MonoBehaviour
 
     [Header("Items")]
 	[Space]
-    public GameObject itemChemical;
-    public GameObject itemRuler;
-    public GameObject itemPipe;
-    public GameObject itemFire;
-    public GameObject itemGun;
+    public ListObjectValue itemList;
     public BoolValue hasGun;
 
     private bool isProtected = false;
@@ -24,10 +20,19 @@ public class PlayerManager : MonoBehaviour
     private SpriteRenderer renderer;
     private Animator anim;
     private int itemCount;
-    private List<GameObject> itemList;
+    private GameObject itemChemical;
+    private GameObject itemRuler;
+    private GameObject itemPipe;
+    private GameObject itemFire;
+    private GameObject itemGun;
 
     void Start() {
-        itemList = new List<GameObject>();
+        itemChemical = GameObject.Find("/Canvas/ItemBar/ItemChemical");
+        itemRuler = GameObject.Find("/Canvas/ItemBar/ItemRuler");
+        itemPipe = GameObject.Find("/Canvas/ItemBar/ItemPipe");
+        itemFire = GameObject.Find("/Canvas/ItemBar/ItemFire");
+        itemGun = GameObject.Find("/Canvas/ItemBar/ItemGun");
+
         myRigidbody = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -93,9 +98,9 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void ShowItem(GameObject item) {
-        itemList.Add(item);
+        itemList.runtimeValue.Add(item);
 
-        Vector3 pos = new Vector3(49 * (itemList.Count - 3), 0, 0);
+        Vector3 pos = new Vector3(49 * (itemList.runtimeValue.Count - 3), 0, 0);
         item.GetComponent<RectTransform>().localPosition = pos;
 
         item.SetActive(true);
@@ -103,21 +108,21 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void CheckGunMaterials() {
-        if (itemList.Contains(itemChemical) && itemList.Contains(itemPipe) && itemList.Contains(itemFire)) {
-            itemList.Remove(itemChemical);
-            itemList.Remove(itemPipe);
-            itemList.Remove(itemFire);
+        if (itemList.runtimeValue.Contains(itemChemical) && itemList.runtimeValue.Contains(itemPipe) && itemList.runtimeValue.Contains(itemFire)) {
+            itemList.runtimeValue.Remove(itemChemical);
+            itemList.runtimeValue.Remove(itemPipe);
+            itemList.runtimeValue.Remove(itemFire);
             itemChemical.SetActive(false);
             itemPipe.SetActive(false);
             itemFire.SetActive(false);
 
-            itemList.Add(itemGun);
+            itemList.runtimeValue.Add(itemGun);
             itemGun.SetActive(true);
             hasGun.runtimeValue = true;
 
-            for (int i = 0; i < itemList.Count; i++) {
+            for (int i = 0; i < itemList.runtimeValue.Count; i++) {
                 Vector3 pos = new Vector3(49 * (i - 2), 0, 0);
-                itemList[i].GetComponent<RectTransform>().localPosition = pos;
+                itemList.runtimeValue[i].GetComponent<RectTransform>().localPosition = pos;
             }
         }
     }
