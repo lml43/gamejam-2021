@@ -7,10 +7,10 @@ TagManager:
   - Breakable
   - Enemy
   - Item
-  - Mask
   - Ruler
   - Chemical
   - Pipe
+  - FireExtinguisher
   layers:
   - Default
   - TransparentFX
@@ -23,7 +23,7 @@ TagManager:
   - Collision
   - Enemy
   - Player
-  - 
+  - Arrow
   - 
   - 
   - 

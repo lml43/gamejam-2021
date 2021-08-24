@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed;
     public PlayerStateValue currentState;
+    public GameObject bulletObject;
+    public BoolValue hasGun;
 
     private Rigidbody2D myRigidbody;
     private Vector3 change;
@@ -33,6 +35,9 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate() {
         if (Input.GetButtonDown("Attack") && currentState.runtimeValue != PlayerState.attack && currentState.runtimeValue != PlayerState.stagger && currentState.runtimeValue != PlayerState.untouchable) {
             StartCoroutine(AttackCo());
+            MoveChar();
+        } else if (hasGun.runtimeValue && Input.GetButtonDown("Shoot") && currentState.runtimeValue != PlayerState.attack && currentState.runtimeValue != PlayerState.stagger && currentState.runtimeValue != PlayerState.untouchable) {
+            StartCoroutine(ShootCo());
         } else if (currentState.runtimeValue == PlayerState.walk || currentState.runtimeValue == PlayerState.idle || currentState.runtimeValue == PlayerState.untouchable) {
             UpdateAnimationAndMove();
         }
@@ -45,6 +50,27 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("attacking", false);
         yield return new WaitForSeconds(.3f);
         currentState.runtimeValue = PlayerState.walk;
+    }
+
+    private IEnumerator ShootCo() {
+        // animator.SetBool("attacking", true);
+        currentState.runtimeValue = PlayerState.attack;
+        yield return null;
+        MakeBullet();
+        // animator.SetBool("attacking", false);
+        yield return new WaitForSeconds(.3f);
+        currentState.runtimeValue = PlayerState.walk;
+    }
+
+    private void MakeBullet() {
+        Vector2 temp = new Vector2(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
+        Bullet bullet = Instantiate(bulletObject, transform.position, Quaternion.identity).GetComponent<Bullet>();
+        bullet.SetUp(temp, ChooseArrowDirection());
+    }
+
+    Vector3 ChooseArrowDirection() {
+        float temp = Mathf.Atan2(animator.GetFloat("moveY"), animator.GetFloat("moveX")) * Mathf.Rad2Deg;
+        return new Vector3(0, 0, temp);
     }
 
     void UpdateAnimationAndMove() {

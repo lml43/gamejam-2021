@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject itemPipe;
     public GameObject itemFire;
     public GameObject itemGun;
+    public BoolValue hasGun;
 
     private bool isProtected = false;
     private Rigidbody2D myRigidbody;
@@ -103,8 +104,6 @@ public class PlayerManager : MonoBehaviour
 
     private void CheckGunMaterials() {
         if (itemList.Contains(itemChemical) && itemList.Contains(itemPipe) && itemList.Contains(itemFire)) {
-            Debug.Log("Hello");
-
             itemList.Remove(itemChemical);
             itemList.Remove(itemPipe);
             itemList.Remove(itemFire);
@@ -114,6 +113,7 @@ public class PlayerManager : MonoBehaviour
 
             itemList.Add(itemGun);
             itemGun.SetActive(true);
+            hasGun.runtimeValue = true;
 
             for (int i = 0; i < itemList.Count; i++) {
                 Vector3 pos = new Vector3(49 * (i - 2), 0, 0);

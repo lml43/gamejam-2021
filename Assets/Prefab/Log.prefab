@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: {fileID: 11400000, guid: 5350efb374f654db58cc036ab90ed4f5, type: 2}
   nextWaypointDistance: 1
-  chaseRadius: 6
+  chaseRadius: 5
   attackRadius: 1
   startWaitTime: 2
   moveSpots: []
