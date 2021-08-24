@@ -872,7 +872,7 @@ GameObject:
   - component: {fileID: 2014562790}
   - component: {fileID: 2014562789}
   m_Layer: 0
-  m_Name: SceneLoader
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -887,9 +887,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2014562788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e20dfb4ba806b40fe83a5558aeb3281b, type: 3}
+  m_Script: {fileID: 11500000, guid: 52230657437fa4314a3610b09736cfe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameScene: RealWorldScene
 --- !u!4 &2014562790
 Transform:
   m_ObjectHideFlags: 0
