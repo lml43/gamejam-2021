@@ -238,13 +238,13 @@ SpriteRenderer:
   m_SortingLayerID: -27756345
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3328699655954895822, guid: ac178d67b4a4248ecac0642ccaacb134,
+  m_Sprite: {fileID: -8360621857648827146, guid: 8d96bb02bc8b04b199330583c70cbf26,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1.375, y: 1.375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -288,8 +288,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6, y: 1.6}
-    newSize: {x: 1, y: 2}
+    oldSize: {x: 1.375, y: 1.375}
+    newSize: {x: 1.375, y: 1.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -365,11 +365,7 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: d147de58d28ad470eaf17922baa8e45f, type: 2}
   heartValue: 20
   untouchableTime: 3
-  itemChemical: {fileID: 0}
-  itemRuler: {fileID: 0}
-  itemPipe: {fileID: 0}
-  itemFire: {fileID: 0}
-  itemGun: {fileID: 0}
+  stateControl: {fileID: 0}
   hasGun: {fileID: 11400000, guid: 0b75aba817ee54faaa303f8fa0221c33, type: 2}
 --- !u!1 &3078715358924075379
 GameObject:

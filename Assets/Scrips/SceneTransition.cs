@@ -8,11 +8,18 @@ public class SceneTransition : MonoBehaviour
 
     public string scenceToLoad;
     public float availableTime;
+    public bool isRealWorld;
 
-    private float currentTime;
+    private float endTime;
 
     private void Awake() {
-        currentTime = availableTime;
+        endTime = Time.time + availableTime;
+    }
+
+    private void Update() {
+        if (isRealWorld && Time.time > endTime) {
+            SceneManager.LoadScene(scenceToLoad);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

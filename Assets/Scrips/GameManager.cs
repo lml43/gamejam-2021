@@ -4,23 +4,27 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public BoolValue isFirstLoad;
     [Header("Items")]
 	[Space]
     public GameObject coinPrefab;
     public GameObject heartPrefab;
     public int heartNumber;
 
-    [Header("Player")]
-	[Space]
-    public IntValue playerHealth;
-    public int healthReduceRate = 1;
+    // [Header("Player")]
+	// [Space]
+    // public IntValue playerHealth;
+    // public int healthReduceRate = 1;
 
-    private int nextTimestamp = 3;
+    // private int nextTimestamp = 3;
     private GameObject[] breakableObjects;
 
     void Start()
     {
-        GenerateItems();
+        if (isFirstLoad.runtimeValue) {
+            isFirstLoad.runtimeValue = false;
+            GenerateItems();
+        }
     }
 
     void GenerateItems() {
@@ -54,10 +58,10 @@ public class GameManager : MonoBehaviour
         return respawnIdx;
     }
 
-    void Update() {
-        if (nextTimestamp < Time.time) {
-            playerHealth.runtimeValue -= healthReduceRate;
-            nextTimestamp = (int) Mathf.Round(Time.time + 1);
-        }
-    }
+    // void Update() {
+    //     if (nextTimestamp < Time.time) {
+    //         playerHealth.runtimeValue -= healthReduceRate;
+    //         nextTimestamp = (int) Mathf.Round(Time.time + 1);
+    //     }
+    // }
 }
