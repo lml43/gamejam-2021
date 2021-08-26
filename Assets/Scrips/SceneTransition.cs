@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
 
+    public Transform player;
     public string scenceToLoad;
     public float availableTime;
     public bool isRealWorld;
@@ -14,10 +15,13 @@ public class SceneTransition : MonoBehaviour
 
     private void Awake() {
         endTime = Time.time + availableTime;
+        Debug.Log(endTime);
     }
 
     private void Update() {
         if (isRealWorld && Time.time > endTime) {
+            StateControl.Instance.playerPos = player.position;
+            Debug.Log(StateControl.Instance.playerPos);
             SceneManager.LoadScene(scenceToLoad);
         }
     }

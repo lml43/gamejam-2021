@@ -9,10 +9,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerStateValue currentState;
     public int heartValue;
     public float untouchableTime;
-
-    [Header("Items")]
-	[Space]
-    public BoolValue hasGun;
+    public BoolValue isFirstLoad;
 
     private bool isProtected = false;
     private Rigidbody2D myRigidbody;
@@ -24,27 +21,20 @@ public class PlayerManager : MonoBehaviour
     private GameObject itemPipe;
     private GameObject itemFire;
     private GameObject itemGun;
+    private GameObject itemWrench;
     private List<GameObject> itemList;
 
     void Start() {
-        itemChemical = GameObject.Find("/Canvas/ItemBar/ItemChemical");
-        itemRuler = GameObject.Find("/Canvas/ItemBar/ItemRuler");
-        itemPipe = GameObject.Find("/Canvas/ItemBar/ItemPipe");
-        itemFire = GameObject.Find("/Canvas/ItemBar/ItemFire");
-        itemGun = GameObject.Find("/Canvas/ItemBar/ItemGun");
 
-        itemList = new List<GameObject>();
-        // Debug.Log("Hi" + stateControl.hasRuler);
-
-        if (StateControl.Instance.hasRuler) {
-            itemRuler.SetActive(true);
-            itemList.Add(itemRuler);
+        if (!isFirstLoad.runtimeValue) {
+            transform.position = StateControl.Instance.playerPos;
         }
-        RenderItem();
 
         myRigidbody = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
+        InitItems();
     }
     
     void OnTriggerEnter2D(Collider2D other) {
@@ -67,17 +57,26 @@ public class PlayerManager : MonoBehaviour
 
         if (other.gameObject.CompareTag("Chemical")) {
             other.gameObject.SetActive(false);
+            StateControl.Instance.hasChemical = true;
             ShowItem(itemChemical);
         }
 
         if (other.gameObject.CompareTag("Pipe")) {
             other.gameObject.SetActive(false);
+            StateControl.Instance.hasPipe = true;
             ShowItem(itemPipe);
         }
 
         if (other.gameObject.CompareTag("FireExtinguisher")) {
             other.gameObject.SetActive(false);
+            StateControl.Instance.hasFire = true;
             ShowItem(itemFire);
+        }
+
+        if (other.gameObject.CompareTag("Wrench")) {
+            other.gameObject.SetActive(false);
+            StateControl.Instance.hasWrench = true;
+            ShowItem(itemWrench);
         }
     }
 
@@ -107,6 +106,51 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    private void InitItems() {
+        itemChemical = GameObject.Find("/Canvas/ItemBar/ItemChemical");
+        itemRuler = GameObject.Find("/Canvas/ItemBar/ItemRuler");
+        itemPipe = GameObject.Find("/Canvas/ItemBar/ItemPipe");
+        itemFire = GameObject.Find("/Canvas/ItemBar/ItemFire");
+        itemGun = GameObject.Find("/Canvas/ItemBar/ItemGun");
+        itemWrench = GameObject.Find("/Canvas/ItemBar/ItemWrench");
+
+        itemList = new List<GameObject>();
+        // Debug.Log("Hi" + stateControl.hasRuler);
+
+        if (StateControl.Instance.hasRuler) {
+            anim.SetBool("hasRuler", true);
+            itemRuler.SetActive(true);
+            itemList.Add(itemRuler);
+        }
+
+        if (StateControl.Instance.hasFire) {
+            itemFire.SetActive(true);
+            itemList.Add(itemFire);
+        }
+
+        if (StateControl.Instance.hasGun) {
+            itemGun.SetActive(true);
+            itemList.Add(itemGun);
+        }
+
+        if (StateControl.Instance.hasPipe) {
+            itemPipe.SetActive(true);
+            itemList.Add(itemPipe);
+        }
+
+        if (StateControl.Instance.hasChemical) {
+            itemChemical.SetActive(true);
+            itemList.Add(itemChemical);
+        }
+
+        if (StateControl.Instance.hasWrench) {
+            itemWrench.SetActive(true);
+            itemList.Add(itemWrench);
+        }
+
+        RenderItem();
+    }
+
     private void ShowItem(GameObject item) {
         itemList.Add(item);
 
@@ -118,17 +162,24 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void CheckGunMaterials() {
-        if (itemList.Contains(itemChemical) && itemList.Contains(itemPipe) && itemList.Contains(itemFire)) {
+        if (itemList.Contains(itemChemical) 
+            && itemList.Contains(itemPipe) 
+            && itemList.Contains(itemFire)
+            && itemList.Contains(itemWrench)
+        ) {
             itemList.Remove(itemChemical);
             itemList.Remove(itemPipe);
             itemList.Remove(itemFire);
+            itemList.Remove(itemWrench);
+
             itemChemical.SetActive(false);
             itemPipe.SetActive(false);
             itemFire.SetActive(false);
+            itemWrench.SetActive(false);
 
             itemList.Add(itemGun);
             itemGun.SetActive(true);
-            hasGun.runtimeValue = true;
+            StateControl.Instance.hasGun = true;
 
             RenderItem();
         }

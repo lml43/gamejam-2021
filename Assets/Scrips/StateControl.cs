@@ -8,8 +8,13 @@ public class StateControl : MonoBehaviour
 
     public bool hasRuler;
     public bool hasChemical;
-    public bool hasFire;
+    public bool didFireBoxBroke;
     public bool hasPipe;
+    public bool hasFire;
+    public bool hasGun;
+    public bool hasWrench;
+    public Vector3 playerPos;
+
 
     void Awake ()   
     {

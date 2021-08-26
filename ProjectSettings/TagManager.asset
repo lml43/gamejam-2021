@@ -11,6 +11,8 @@ TagManager:
   - Chemical
   - Pipe
   - FireExtinguisher
+  - FireBox
+  - Wrench
   layers:
   - Default
   - TransparentFX

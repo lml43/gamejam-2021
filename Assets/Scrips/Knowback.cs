@@ -10,8 +10,9 @@ public class Knowback : MonoBehaviour
     public int damage;
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Breakable") && gameObject.CompareTag("Player")) {
-            other.GetComponent<Pot>().Smash();
+        if (other.gameObject.CompareTag("FireBox") && gameObject.CompareTag("Player")) {
+            other.GetComponent<Breakable>().Smash();
+            StateControl.Instance.didFireBoxBroke = true;
         }
 
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Player")) {
@@ -25,7 +26,7 @@ public class Knowback : MonoBehaviour
                 difference = difference.normalized * thrust;
                 hit.AddForce(difference, ForceMode2D.Impulse);
 
-                if(isOtherEnemy && gameObject.CompareTag("Player")) {
+                if(isOtherEnemy) {
                     hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
                     other.GetComponent<Enemy>().Knock(hit, knockTime, damage);
                 } else if (isOtherPlayer && other.GetComponent<PlayerManager>().currentState.runtimeValue != PlayerState.stagger){

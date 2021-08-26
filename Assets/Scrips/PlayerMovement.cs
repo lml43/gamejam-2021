@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public PlayerStateValue currentState;
     public GameObject bulletObject;
-    public BoolValue hasGun;
 
     private Rigidbody2D myRigidbody;
     private Vector3 change;
@@ -36,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Attack") && currentState.runtimeValue != PlayerState.attack && currentState.runtimeValue != PlayerState.stagger && currentState.runtimeValue != PlayerState.untouchable) {
             StartCoroutine(AttackCo());
             MoveChar();
-        } else if (hasGun.runtimeValue && Input.GetButtonDown("Shoot") && currentState.runtimeValue != PlayerState.attack && currentState.runtimeValue != PlayerState.stagger && currentState.runtimeValue != PlayerState.untouchable) {
+        } else if (StateControl.Instance.hasGun && Input.GetButtonDown("Shoot") && currentState.runtimeValue != PlayerState.attack && currentState.runtimeValue != PlayerState.stagger && currentState.runtimeValue != PlayerState.untouchable) {
             StartCoroutine(ShootCo());
         } else if (currentState.runtimeValue == PlayerState.walk || currentState.runtimeValue == PlayerState.idle || currentState.runtimeValue == PlayerState.untouchable) {
             UpdateAnimationAndMove();
