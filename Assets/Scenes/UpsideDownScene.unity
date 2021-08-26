@@ -849,7 +849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &542155172
 Transform:
   m_ObjectHideFlags: 0
@@ -1414,7 +1414,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 16.78, y: 14.223437, z: 0}
+  m_ChunkCullingBounds: {x: 16.78, y: 14.22, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -1709,7 +1709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &983606971
 Transform:
   m_ObjectHideFlags: 0
@@ -2128,7 +2128,6 @@ GameObject:
   - component: {fileID: 1292758979}
   - component: {fileID: 1292758978}
   - component: {fileID: 1292758977}
-  - component: {fileID: 1292758976}
   m_Layer: 8
   m_Name: Collision
   m_TagString: Untagged
@@ -2150,32 +2149,6 @@ Transform:
   m_Father: {fileID: 925415775}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1292758976
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292758973}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.004833579, y: 1.1209955}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.0017612, y: 0.26839638}
-  m_EdgeRadius: 0
 --- !u!66 &1292758977
 CompositeCollider2D:
   m_ObjectHideFlags: 0

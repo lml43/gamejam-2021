@@ -15,7 +15,6 @@ public class SceneTransition : MonoBehaviour
 
     private void Awake() {
         endTime = Time.time + availableTime;
-        Debug.Log(endTime);
     }
 
     private void Update() {

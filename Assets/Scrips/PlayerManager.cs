@@ -42,42 +42,6 @@ public class PlayerManager : MonoBehaviour
             other.gameObject.SetActive(false);
             IncreaseHealth(heartValue);
         }
-        
-        // if (other.gameObject.CompareTag("Mask")) {
-        //     other.gameObject.SetActive(false);
-        //     isProtected = true;
-        // }
-
-        if (other.gameObject.CompareTag("Ruler")) {
-            other.gameObject.SetActive(false);
-            anim.SetBool("hasRuler", true);
-            StateControl.Instance.hasRuler = true;
-            ShowItem(itemRuler);
-        }
-
-        if (other.gameObject.CompareTag("Chemical")) {
-            other.gameObject.SetActive(false);
-            StateControl.Instance.hasChemical = true;
-            ShowItem(itemChemical);
-        }
-
-        if (other.gameObject.CompareTag("Pipe")) {
-            other.gameObject.SetActive(false);
-            StateControl.Instance.hasPipe = true;
-            ShowItem(itemPipe);
-        }
-
-        if (other.gameObject.CompareTag("FireExtinguisher")) {
-            other.gameObject.SetActive(false);
-            StateControl.Instance.hasFire = true;
-            ShowItem(itemFire);
-        }
-
-        if (other.gameObject.CompareTag("Wrench")) {
-            other.gameObject.SetActive(false);
-            StateControl.Instance.hasWrench = true;
-            ShowItem(itemWrench);
-        }
     }
 
     public void Blur() {
@@ -151,17 +115,12 @@ public class PlayerManager : MonoBehaviour
         RenderItem();
     }
 
-    private void ShowItem(GameObject item) {
+    public int AddItem(GameObject item) {
         itemList.Add(item);
-
-        Vector3 pos = new Vector3(49 * (itemList.Count - 3), 0, 0);
-        item.GetComponent<RectTransform>().localPosition = pos;
-
-        item.SetActive(true);
-        CheckGunMaterials();
+        return itemList.Count;
     }
 
-    private void CheckGunMaterials() {
+    public void CheckGunMaterials() {
         if (itemList.Contains(itemChemical) 
             && itemList.Contains(itemPipe) 
             && itemList.Contains(itemFire)
@@ -176,6 +135,11 @@ public class PlayerManager : MonoBehaviour
             itemPipe.SetActive(false);
             itemFire.SetActive(false);
             itemWrench.SetActive(false);
+
+            StateControl.Instance.hasFire = false;
+            StateControl.Instance.hasChemical = false;
+            StateControl.Instance.hasPipe = false;
+            StateControl.Instance.hasWrench = false;
 
             itemList.Add(itemGun);
             itemGun.SetActive(true);
