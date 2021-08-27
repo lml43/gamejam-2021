@@ -8,13 +8,13 @@ public class SceneTransition : MonoBehaviour
 
     public Transform player;
     public string scenceToLoad;
-    public float availableTime;
+    public FloatValue availableTime;
     public bool isRealWorld;
 
     private float endTime;
 
     private void Awake() {
-        endTime = Time.time + availableTime;
+        endTime = Time.time + availableTime.initialValue;
     }
 
     private void Update() {

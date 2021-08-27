@@ -488,6 +488,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 225265505542791270, guid: 34cbfa1c9148b4e4da6fa52e631bfdee,
+        type: 3}
+      propertyPath: availableTime
+      value: 
+      objectReference: {fileID: 11400000, guid: 421b8feb020b1447e88e2a3c702814ad,
+        type: 2}
     - target: {fileID: 3238722280253148754, guid: 34cbfa1c9148b4e4da6fa52e631bfdee,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2872,6 +2878,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1776171821, guid: 29142ffb6d3c74718b16049b5e499c18, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1165163442}
+    - target: {fileID: 1776171821, guid: 29142ffb6d3c74718b16049b5e499c18, type: 3}
+      propertyPath: isRealWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776171821, guid: 29142ffb6d3c74718b16049b5e499c18, type: 3}
+      propertyPath: scenceToLoad
+      value: RealWorldScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776171821, guid: 29142ffb6d3c74718b16049b5e499c18, type: 3}
+      propertyPath: availableTime
+      value: 
+      objectReference: {fileID: 11400000, guid: 421b8feb020b1447e88e2a3c702814ad,
+        type: 2}
     - target: {fileID: 7849642552362841809, guid: 29142ffb6d3c74718b16049b5e499c18,
         type: 3}
       propertyPath: m_RootOrder

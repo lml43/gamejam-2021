@@ -3031,6 +3031,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1776171821, guid: 29142ffb6d3c74718b16049b5e499c18, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 800560014}
     - target: {fileID: 7849642552362841809, guid: 29142ffb6d3c74718b16049b5e499c18,
         type: 3}
       propertyPath: m_RootOrder
@@ -3091,28 +3095,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene Transition
       objectReference: {fileID: 0}
-    - target: {fileID: 7849642552362841811, guid: 29142ffb6d3c74718b16049b5e499c18,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 800560014}
-    - target: {fileID: 7849642552362841811, guid: 29142ffb6d3c74718b16049b5e499c18,
-        type: 3}
-      propertyPath: isRealWorld
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849642552362841811, guid: 29142ffb6d3c74718b16049b5e499c18,
-        type: 3}
-      propertyPath: scenceToLoad
-      value: UpsideDownScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849642552362841811, guid: 29142ffb6d3c74718b16049b5e499c18,
-        type: 3}
-      propertyPath: availableTime
-      value: 20
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7849642552362841811, guid: 29142ffb6d3c74718b16049b5e499c18, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29142ffb6d3c74718b16049b5e499c18, type: 3}
 --- !u!1 &1756951744
 GameObject:
@@ -3168,28 +3151,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1776171820 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7849642552362841810, guid: 29142ffb6d3c74718b16049b5e499c18,
-    type: 3}
-  m_PrefabInstance: {fileID: 1748103301}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1776171821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776171820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab72ebe31d9924010b1c4f411c66565a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 800560014}
-  scenceToLoad: UpsideDownScene
-  availableTime: 30
-  isRealWorld: 1
 --- !u!1 &1805449605 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3238722280827037698, guid: 34cbfa1c9148b4e4da6fa52e631bfdee,
@@ -4105,11 +4066,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1505883671781725614, guid: 34cbfa1c9148b4e4da6fa52e631bfdee,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 3238722280253148754, guid: 34cbfa1c9148b4e4da6fa52e631bfdee,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4219,11 +4175,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 3238722280684757326, guid: 34cbfa1c9148b4e4da6fa52e631bfdee,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3238722281815167201, guid: 34cbfa1c9148b4e4da6fa52e631bfdee,
         type: 3}

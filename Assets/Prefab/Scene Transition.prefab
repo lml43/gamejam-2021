@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7849642552362841809}
   - component: {fileID: 7849642552362841808}
-  - component: {fileID: 7849642552362841811}
+  - component: {fileID: 1776171821}
   m_Layer: 0
   m_Name: Scene Transition
   m_TagString: Untagged
@@ -58,7 +58,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9175727, y: 0.69414234}
   m_EdgeRadius: 0
---- !u!114 &7849642552362841811
+--- !u!114 &1776171821
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -70,5 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab72ebe31d9924010b1c4f411c66565a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenceToLoad: RealWorldScene
-  availableTime: 0
+  player: {fileID: 0}
+  scenceToLoad: UpsideDownScene
+  availableTime: {fileID: 11400000, guid: ef608beb46f734ee08640c24ab6336f3, type: 2}
+  isRealWorld: 1
