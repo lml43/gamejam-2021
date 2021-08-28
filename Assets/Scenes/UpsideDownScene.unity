@@ -302,7 +302,7 @@ PrefabInstance:
     - target: {fileID: 3338927428074091022, guid: 88c097b6fafd34d23b25075c4f88b009,
         type: 3}
       propertyPath: damage
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3498043802736890631, guid: 88c097b6fafd34d23b25075c4f88b009,
         type: 3}
@@ -353,47 +353,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3078715358861289228, guid: 36d266caf85914fbfa0c32937c98adda,
-        type: 3}
-      propertyPath: hasFire
-      value: 
-      objectReference: {fileID: 11400000, guid: f8cf35d0f7b674d37b842665ff295a54,
-        type: 2}
-    - target: {fileID: 3078715358861289228, guid: 36d266caf85914fbfa0c32937c98adda,
-        type: 3}
-      propertyPath: hasPipe
-      value: 
-      objectReference: {fileID: 11400000, guid: e31eca8f6b2a24f3fbd1185968d05df0,
-        type: 2}
-    - target: {fileID: 3078715358861289228, guid: 36d266caf85914fbfa0c32937c98adda,
-        type: 3}
-      propertyPath: hasRuler
-      value: 
-      objectReference: {fileID: 11400000, guid: f48dee54d210d4cfe86b7ec17e3aad21,
-        type: 2}
-    - target: {fileID: 3078715358861289228, guid: 36d266caf85914fbfa0c32937c98adda,
-        type: 3}
-      propertyPath: itemList
-      value: 
-      objectReference: {fileID: 11400000, guid: 38236f249d6fd483094db6d47bef01ae,
-        type: 2}
-    - target: {fileID: 3078715358861289228, guid: 36d266caf85914fbfa0c32937c98adda,
-        type: 3}
-      propertyPath: hasChemical
-      value: 
-      objectReference: {fileID: 11400000, guid: 81debd7d510c843bcabd40049c9bed07,
-        type: 2}
-    - target: {fileID: 3078715358861289228, guid: 36d266caf85914fbfa0c32937c98adda,
-        type: 3}
-      propertyPath: isFirstLoad
-      value: 
-      objectReference: {fileID: 11400000, guid: 69e44f7e9e79a4ad9977498ed22585f0,
-        type: 2}
-    - target: {fileID: 3078715358861289228, guid: 36d266caf85914fbfa0c32937c98adda,
-        type: 3}
-      propertyPath: stateControl
-      value: 
-      objectReference: {fileID: 460857796}
     - target: {fileID: 3078715358861289233, guid: 36d266caf85914fbfa0c32937c98adda,
         type: 3}
       propertyPath: m_RootOrder
@@ -499,12 +458,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 225265505542791270, guid: 34cbfa1c9148b4e4da6fa52e631bfdee,
-        type: 3}
-      propertyPath: availableTime
-      value: 
-      objectReference: {fileID: 11400000, guid: 421b8feb020b1447e88e2a3c702814ad,
-        type: 2}
     - target: {fileID: 3238722280253148754, guid: 34cbfa1c9148b4e4da6fa52e631bfdee,
         type: 3}
       propertyPath: m_Pivot.x
@@ -630,25 +583,8 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 834391099}
-    - target: {fileID: 6618740310762586910, guid: 34cbfa1c9148b4e4da6fa52e631bfdee,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34cbfa1c9148b4e4da6fa52e631bfdee, type: 3}
---- !u!114 &460857796 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3616578556128239632, guid: a98b1d6a4241e41acbd93b5e22bb92b4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1956582767}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44a4352a0a8354983a37f40ff872be0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &497185247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -719,7 +655,7 @@ PrefabInstance:
     - target: {fileID: 3338927428074091022, guid: 88c097b6fafd34d23b25075c4f88b009,
         type: 3}
       propertyPath: damage
-      value: 100
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3498043802736890631, guid: 88c097b6fafd34d23b25075c4f88b009,
         type: 3}
@@ -1447,6 +1383,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 380510874}
+    - target: {fileID: 8776522107424159830, guid: 59c26a48af3b741f880ec2c5b503f443,
+        type: 3}
+      propertyPath: isRealWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8776522107424159831, guid: 59c26a48af3b741f880ec2c5b503f443,
         type: 3}
       propertyPath: m_Name
@@ -3025,24 +2966,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: State Control
       objectReference: {fileID: 0}
-    - target: {fileID: 3616578556128239632, guid: a98b1d6a4241e41acbd93b5e22bb92b4,
-        type: 3}
-      propertyPath: isFirstLoad
-      value: 
-      objectReference: {fileID: 11400000, guid: 69e44f7e9e79a4ad9977498ed22585f0,
-        type: 2}
-    - target: {fileID: 3616578556128239632, guid: a98b1d6a4241e41acbd93b5e22bb92b4,
-        type: 3}
-      propertyPath: playerState
-      value: 
-      objectReference: {fileID: 11400000, guid: d147de58d28ad470eaf17922baa8e45f,
-        type: 2}
-    - target: {fileID: 3616578556128239632, guid: a98b1d6a4241e41acbd93b5e22bb92b4,
-        type: 3}
-      propertyPath: playerHealth
-      value: 
-      objectReference: {fileID: 11400000, guid: 18eb1298b5518420aa09491ea68a5c05,
-        type: 2}
     - target: {fileID: 5002252810971290413, guid: a98b1d6a4241e41acbd93b5e22bb92b4,
         type: 3}
       propertyPath: m_RootOrder

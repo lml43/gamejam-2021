@@ -41,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
         } else if (currentState.runtimeValue == PlayerState.walk || currentState.runtimeValue == PlayerState.idle || currentState.runtimeValue == PlayerState.untouchable) {
             UpdateAnimationAndMove();
         }
+
+        if (Input.GetButtonDown("Healing") && StateControl.Instance.hasHeart) {
+            StateControl.Instance.hasHeart = false;
+            FindObjectOfType<GameManager>().IncreaseHealth();
+        }
     }
 
     private IEnumerator AttackCo() {

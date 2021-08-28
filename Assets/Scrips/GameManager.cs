@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public GameObject pipe;
     public GameObject wrench;
     public GameObject fireBox;
+    public GameObject heart1;
+    public GameObject heart2;
 
     [Header("Popups")]
 	[Space]
@@ -31,15 +33,17 @@ public class GameManager : MonoBehaviour
     private GameObject itemFire;
     private GameObject itemGun;
     private GameObject itemWrench;
+    private GameObject itemHeart;
     private List<GameObject> itemList;
 
     private bool showGunPopups;
 
 
-    // [Header("Player")]
-	// [Space]
-    // public IntValue playerHealth;
-    // public int healthReduceRate = 1;
+    [Header("Healing")]
+	[Space]
+    public IntValue playerHealth;
+    public int heartValue;
+
 
     // private int nextTimestamp = 3;
     private GameObject[] breakableObjects;
@@ -61,8 +65,24 @@ public class GameManager : MonoBehaviour
         itemFire = GameObject.Find("/Canvas/ItemBar/ItemFire");
         itemGun = GameObject.Find("/Canvas/ItemBar/ItemGun");
         itemWrench = GameObject.Find("/Canvas/ItemBar/ItemWrench");
+        itemHeart = GameObject.Find("/Canvas/ItemBar/ItemHeart");
 
         itemList = new List<GameObject>();
+
+        if (StateControl.Instance.didFireBoxBroke) {
+            if (StateControl.Instance.hasFire) {
+                itemFire.SetActive(true);
+                itemList.Add(itemFire);
+
+                if (isRealWorld) {
+                    fireBox.GetComponent<Animator>().SetBool("looted", true);
+                }
+            }
+            
+            if (isRealWorld) {
+                fireBox.GetComponent<Animator>().SetBool("smash", true);
+            }
+        }
 
         if (StateControl.Instance.hasRuler) {
             player.GetComponent<Animator>().SetBool("hasRuler", true);
@@ -73,16 +93,18 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (StateControl.Instance.didFireBoxBroke) {
-            if (StateControl.Instance.hasFire) {
-                itemFire.SetActive(true);
-                itemList.Add(itemFire);
-                // TODO set firebox state
-            } else {
-                Debug.Log("Fire Box broke, not hasFire");
-            }
+        if (StateControl.Instance.hasHeart) {
+            itemHeart.SetActive(true);
+            itemList.Add(itemHeart);
+        }
+
+        if (isRealWorld && StateControl.Instance.lootHeart1) {
+            heart1.SetActive(false);
         }
         
+        if (isRealWorld && StateControl.Instance.lootHeart2) {
+            heart2.SetActive(false);
+        }
 
         if (StateControl.Instance.hasGun) {
             player.GetComponent<Animator>().SetBool("hasGun", true);
@@ -115,6 +137,13 @@ public class GameManager : MonoBehaviour
         }
 
         RenderItemGFX();
+    }
+
+
+    public void IncreaseHealth() {
+        itemList.Remove(itemHeart);
+        itemHeart.SetActive(false);
+        playerHealth.runtimeValue = Mathf.Min(playerHealth.initialValue, playerHealth.runtimeValue + heartValue);
     }
 
     public void ReloadGame() {

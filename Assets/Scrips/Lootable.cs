@@ -5,6 +5,7 @@ using UnityEngine;
 public class Lootable : MonoBehaviour
 {
     public GameObject itemGFX;
+    public GameObject fireBox;
 
     private bool isPlayerInRange;
     private GameObject player;
@@ -31,6 +32,7 @@ public class Lootable : MonoBehaviour
 
             if (gameObject.CompareTag("FireExtinguisher")) {
                 StateControl.Instance.hasFire = true;
+                fireBox.GetComponent<Animator>().SetBool("looted", true);
             }
 
             if (gameObject.CompareTag("Chemical")) {
@@ -43,6 +45,13 @@ public class Lootable : MonoBehaviour
 
             if (gameObject.CompareTag("Wrench")) {
                 StateControl.Instance.hasWrench = true;
+            }
+
+            if (gameObject.CompareTag("Heart1") || gameObject.CompareTag("Heart2")) {
+                if (StateControl.Instance.hasHeart) {
+                    return;
+                }
+                StateControl.Instance.hasHeart = true;
             }
 
             gameObject.SetActive(false);

@@ -26,15 +26,22 @@ public class Enemy : MonoBehaviour
 
     public void Knock(Rigidbody2D myRb, float knockTime, float damage) {
         StartCoroutine(KnockCo(myRb, knockTime));
-        TakeDamage(damage);
+        TakeDamage(myRb, damage);
     }
 
-    private void TakeDamage(float damage) {
+    private void TakeDamage(Rigidbody2D myRb, float damage) {
         maxHealth.runtimeValue -= damage;
 
         if (maxHealth.runtimeValue <= 0) {
-            this.gameObject.SetActive(false);
+            this.gameObject.GetComponent<Animator>().SetBool("isDead", true);
+            myRb.velocity = Vector2.zero;
+            StartCoroutine(Inactive(2f));
         }
+    }
+
+    private IEnumerator Inactive(float time) {
+        yield return new WaitForSeconds(time);
+        this.gameObject.SetActive(false);
     }
 
     private IEnumerator KnockCo(Rigidbody2D myRb, float knockTime) {

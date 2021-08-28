@@ -13,6 +13,9 @@ public class StateControl : MonoBehaviour
     public bool hasFire;
     public bool hasGun;
     public bool hasWrench;
+    public bool hasHeart;
+    public bool lootHeart1;
+    public bool lootHeart2;
     public Vector3 playerPos;
 
     [Header("Scriptable Objects")]
@@ -42,6 +45,9 @@ public class StateControl : MonoBehaviour
         hasFire = false;
         hasGun = false;
         hasWrench = false;
+        hasHeart = false;
+        lootHeart1 = false;
+        lootHeart2 = false;
         playerPos = new Vector3(-11f, -7f, 0);
 
         isFirstLoad.runtimeValue = isFirstLoad.initialValue;

@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 5
   knockTime: 0.8
-  damage: 0
+  damage: 1
 --- !u!1 &3078715358650335149
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 5
   knockTime: 0.8
-  damage: 0
+  damage: 1
 --- !u!1 &3078715358861289236
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +362,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 11400000, guid: 18eb1298b5518420aa09491ea68a5c05, type: 2}
   currentState: {fileID: 11400000, guid: d147de58d28ad470eaf17922baa8e45f, type: 2}
-  heartValue: 20
   untouchableTime: 3
   isFirstLoad: {fileID: 11400000, guid: 69e44f7e9e79a4ad9977498ed22585f0, type: 2}
 --- !u!1 &3078715358924075379
@@ -443,7 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 5
   knockTime: 0.8
-  damage: 0
+  damage: 1
 --- !u!1 &3078715360123921383
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,4 +520,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 5
   knockTime: 0.8
-  damage: 0
+  damage: 1
