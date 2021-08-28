@@ -2875,6 +2875,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3124392925954016366, guid: b0f36a0ec883a47c3a39787d5e9773d8,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3124392925954016366, guid: b0f36a0ec883a47c3a39787d5e9773d8,
+        type: 3}
       propertyPath: m_TagString
       value: Wrench
       objectReference: {fileID: 0}
@@ -2895,6 +2900,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3124392925954016369, guid: b0f36a0ec883a47c3a39787d5e9773d8,
         type: 3}
+      propertyPath: m_Size.x
+      value: 1.422451
+      objectReference: {fileID: 0}
+    - target: {fileID: 3124392925954016369, guid: b0f36a0ec883a47c3a39787d5e9773d8,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.1348658
+      objectReference: {fileID: 0}
+    - target: {fileID: 3124392925954016369, guid: b0f36a0ec883a47c3a39787d5e9773d8,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.45534706
+      objectReference: {fileID: 0}
+    - target: {fileID: 3124392925954016369, guid: b0f36a0ec883a47c3a39787d5e9773d8,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.0043292046
+      objectReference: {fileID: 0}
+    - target: {fileID: 3124392925954016369, guid: b0f36a0ec883a47c3a39787d5e9773d8,
+        type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 1
       objectReference: {fileID: 0}
@@ -2908,6 +2933,11 @@ PrefabInstance:
       propertyPath: itemGFX
       value: 
       objectReference: {fileID: 940955170}
+    - target: {fileID: 3124392925954016370, guid: b0f36a0ec883a47c3a39787d5e9773d8,
+        type: 3}
+      propertyPath: wrenchBox
+      value: 
+      objectReference: {fileID: 1211464806}
     - target: {fileID: 3124392925954016371, guid: b0f36a0ec883a47c3a39787d5e9773d8,
         type: 3}
       propertyPath: m_RootOrder
@@ -2916,12 +2946,12 @@ PrefabInstance:
     - target: {fileID: 3124392925954016371, guid: b0f36a0ec883a47c3a39787d5e9773d8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.06
+      value: 13.96
       objectReference: {fileID: 0}
     - target: {fileID: 3124392925954016371, guid: b0f36a0ec883a47c3a39787d5e9773d8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.32
+      value: -8.14
       objectReference: {fileID: 0}
     - target: {fileID: 3124392925954016371, guid: b0f36a0ec883a47c3a39787d5e9773d8,
         type: 3}
@@ -2973,7 +3003,8 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7223802259467668499, guid: b0f36a0ec883a47c3a39787d5e9773d8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b0f36a0ec883a47c3a39787d5e9773d8, type: 3}
 --- !u!1001 &939136558
 PrefabInstance:
@@ -3200,7 +3231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inactiveAfter: 0.5
-  item: {fileID: 144922157}
+  item: {fileID: 1573348386}
 --- !u!212 &1211464811
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3799,12 +3830,12 @@ PrefabInstance:
     - target: {fileID: 3124392925954016371, guid: b0f36a0ec883a47c3a39787d5e9773d8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.54
+      value: -5.79
       objectReference: {fileID: 0}
     - target: {fileID: 3124392925954016371, guid: b0f36a0ec883a47c3a39787d5e9773d8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.16
+      value: -7.12
       objectReference: {fileID: 0}
     - target: {fileID: 3124392925954016371, guid: b0f36a0ec883a47c3a39787d5e9773d8,
         type: 3}
@@ -4434,12 +4465,12 @@ PrefabInstance:
     - target: {fileID: 3078715358861289233, guid: 36d266caf85914fbfa0c32937c98adda,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.25
+      value: -2.84
       objectReference: {fileID: 0}
     - target: {fileID: 3078715358861289233, guid: 36d266caf85914fbfa0c32937c98adda,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.01
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 3078715358861289233, guid: 36d266caf85914fbfa0c32937c98adda,
         type: 3}
@@ -5150,6 +5181,11 @@ PrefabInstance:
       propertyPath: gunPopups
       value: 
       objectReference: {fileID: 322146105}
+    - target: {fileID: 8776522107424159830, guid: 59c26a48af3b741f880ec2c5b503f443,
+        type: 3}
+      propertyPath: wrenchBox
+      value: 
+      objectReference: {fileID: 1211464806}
     - target: {fileID: 8776522107424159830, guid: 59c26a48af3b741f880ec2c5b503f443,
         type: 3}
       propertyPath: isRealWorld
