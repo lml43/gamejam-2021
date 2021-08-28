@@ -11,28 +11,33 @@ public class SceneTransition : MonoBehaviour
     public FloatValue availableTime;
     public bool isRealWorld;
 
+    public Transform[] spots;
+
     private float endTime;
+    private bool hasShown = false;
 
     private void Awake() {
         endTime = Time.time + availableTime.initialValue;
     }
 
     private void Update() {
-        if (isRealWorld && Time.time > endTime) {
-            StateControl.Instance.playerPos = player.position;
-            SceneManager.LoadScene(scenceToLoad);
+        if (Time.time > endTime) {
+            if (isRealWorld) {
+                StateControl.Instance.playerPos = player.position;
+                SceneManager.LoadScene(scenceToLoad);
+            } else if (!hasShown) {
+                hasShown = true;
+                System.Random ran = new System.Random();
+                int randomIdx = ran.Next(spots.Length);
+                transform.position = spots[randomIdx].position;
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        // if (currentTime < 0) {
-            if (other.CompareTag("Player") && !other.isTrigger) {
-                SceneManager.LoadScene(scenceToLoad);
-            }
-        // }
+        if (other.CompareTag("Player") && !other.isTrigger) {
+            SceneManager.LoadScene(scenceToLoad);
+        }
     }
 
-    // private void FixedUpdate() {
-    //     if ()
-    // }
 }

@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
     // TODO: move to GameManager
     private void RenderItemGFX() {
         for (int i = 0; i < itemList.Count; i++) {
-            Vector3 pos = new Vector3(49 * (i - 2), 0, 0);
+            Vector3 pos = new Vector3(46 * (i - 2), 0, 0);
             itemList[i].GetComponent<RectTransform>().localPosition = pos;
         }
     }

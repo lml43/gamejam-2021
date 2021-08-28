@@ -89,7 +89,7 @@ public class Lootable : MonoBehaviour
     private void ShowItem(GameObject item, int itemCount) {
         // itemList.Add(item);
 
-        Vector3 pos = new Vector3(49 * (itemCount - 3), 0, 0);
+        Vector3 pos = new Vector3(46 * (itemCount - 3), 0, 0);
         item.GetComponent<RectTransform>().localPosition = pos;
 
         item.SetActive(true);
