@@ -10,9 +10,12 @@ public class Knowback : MonoBehaviour
     public int damage;
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("FireBox") && gameObject.CompareTag("Player")) {
-            other.GetComponent<Breakable>().Smash();
-            StateControl.Instance.didFireBoxBroke = true;
+        if (gameObject.CompareTag("Player")) {
+            FindObjectOfType<AudioManager>().Play("Hit");
+            if (other.gameObject.CompareTag("FireBox")) {
+                other.GetComponent<Breakable>().Smash();
+                StateControl.Instance.didFireBoxBroke = true;
+            }
         }
 
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Player")) {

@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
             MoveChar();
         } else if (StateControl.Instance.hasGun && Input.GetButtonDown("Shoot") && currentState.runtimeValue != PlayerState.attack && currentState.runtimeValue != PlayerState.stagger && currentState.runtimeValue != PlayerState.untouchable) {
             StartCoroutine(ShootCo());
+            FindObjectOfType<AudioManager>().Play("Shot");
         } else if (currentState.runtimeValue == PlayerState.walk || currentState.runtimeValue == PlayerState.idle || currentState.runtimeValue == PlayerState.untouchable) {
             UpdateAnimationAndMove();
         }

@@ -20,7 +20,6 @@ public class SceneTransition : MonoBehaviour
     private void Update() {
         if (isRealWorld && Time.time > endTime) {
             StateControl.Instance.playerPos = player.position;
-            Debug.Log(StateControl.Instance.playerPos);
             SceneManager.LoadScene(scenceToLoad);
         }
     }

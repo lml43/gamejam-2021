@@ -44,3 +44,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasRuler: 0
+  hasChemical: 0
+  didFireBoxBroke: 0
+  hasPipe: 0
+  hasFire: 0
+  hasGun: 0
+  hasWrench: 0
+  playerPos: {x: 0, y: 0, z: 0}
+  isFirstLoad: {fileID: 11400000, guid: 69e44f7e9e79a4ad9977498ed22585f0, type: 2}
+  playerHealth: {fileID: 11400000, guid: 18eb1298b5518420aa09491ea68a5c05, type: 2}
+  playerState: {fileID: 11400000, guid: d147de58d28ad470eaf17922baa8e45f, type: 2}

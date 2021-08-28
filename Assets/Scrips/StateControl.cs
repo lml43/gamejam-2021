@@ -15,6 +15,11 @@ public class StateControl : MonoBehaviour
     public bool hasWrench;
     public Vector3 playerPos;
 
+    [Header("Scriptable Objects")]
+	[Space]
+    public BoolValue isFirstLoad;
+    public IntValue playerHealth;
+    public PlayerStateValue playerState;
 
     void Awake ()   
     {
@@ -27,6 +32,21 @@ public class StateControl : MonoBehaviour
         {
             Destroy (gameObject);
         }
+    }
+
+    public void ResetState() {
+        hasRuler = false;
+        hasChemical = false;
+        didFireBoxBroke = false;
+        hasPipe = false;
+        hasFire = false;
+        hasGun = false;
+        hasWrench = false;
+        playerPos = new Vector3(-11f, -7f, 0);
+
+        isFirstLoad.runtimeValue = isFirstLoad.initialValue;
+        playerHealth.runtimeValue = playerHealth.initialValue;
+        playerState.runtimeValue = PlayerState.idle;
     }
 
 

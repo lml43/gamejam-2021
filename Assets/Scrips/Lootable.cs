@@ -8,17 +8,23 @@ public class Lootable : MonoBehaviour
 
     private bool isPlayerInRange;
     private GameObject player;
+    private GameManager gameManager;
+
 
     // Start is called before the first frame update
     void Start() {
         player = GameObject.Find("Player");
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     void Update()
     {
         if (Input.GetKey(KeyCode.Space) && isPlayerInRange) {
 
+            FindObjectOfType<AudioManager>().Play("Loot");
+
             if (gameObject.CompareTag("Ruler")) {
+                gameManager.ShowRulerPopups();
                 player.GetComponent<Animator>().SetBool("hasRuler", true);
                 StateControl.Instance.hasRuler = true;
             }
@@ -40,9 +46,9 @@ public class Lootable : MonoBehaviour
             }
 
             gameObject.SetActive(false);
-            int listCount = player.GetComponent<PlayerManager>().AddItem(itemGFX);
+            int listCount = gameManager.AddItem(itemGFX);
             ShowItem(itemGFX, listCount);
-            player.GetComponent<PlayerManager>().CheckGunMaterials();
+            gameManager.CheckGunMaterials();
         }
     }
 
