@@ -22,6 +22,7 @@ public class StateControl : MonoBehaviour
 	[Space]
     public BoolValue isFirstLoad;
     public IntValue playerHealth;
+    public IntValue studentsNumber;
     public PlayerStateValue playerState;
 
     void Awake ()   
@@ -53,6 +54,7 @@ public class StateControl : MonoBehaviour
         isFirstLoad.runtimeValue = isFirstLoad.initialValue;
         playerHealth.runtimeValue = playerHealth.initialValue;
         playerState.runtimeValue = PlayerState.idle;
+        studentsNumber.runtimeValue = studentsNumber.initialValue;
     }
 
 

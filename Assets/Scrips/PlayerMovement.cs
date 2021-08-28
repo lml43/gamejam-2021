@@ -53,17 +53,18 @@ public class PlayerMovement : MonoBehaviour
         currentState.runtimeValue = PlayerState.attack;
         yield return null;
         animator.SetBool("attacking", false);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.2f);
         currentState.runtimeValue = PlayerState.walk;
     }
 
     private IEnumerator ShootCo() {
-        // animator.SetBool("attacking", true);
+        animator.SetBool("shooting", true);
         currentState.runtimeValue = PlayerState.attack;
         yield return null;
+        animator.SetBool("shooting", false);
+        yield return new WaitForSeconds(.25f);
         MakeBullet();
-        // animator.SetBool("attacking", false);
-        yield return new WaitForSeconds(.3f);
+
         currentState.runtimeValue = PlayerState.walk;
     }
 

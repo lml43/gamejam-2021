@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 719b0cb74b67f439590b78ae328fbdc8, type: 3}
-  m_Name: RealWordTime
+  m_Script: {fileID: 11500000, guid: c9ea8d50a56ed4a53a0adb4b3d3b118d, type: 3}
+  m_Name: StudentMaxHealth
   m_EditorClassIdentifier: 
-  initialValue: 100
-  runtimeValue: 82
+  initialValue: 30
+  runtimeValue: 30

@@ -168,6 +168,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(ShowPopups(gunPopups));
 
             FindObjectOfType<AudioManager>().Play("Gun");
+            player.GetComponent<Animator>().SetBool("hasGun", true);
 
             itemList.Remove(itemChemical);
             itemList.Remove(itemPipe);

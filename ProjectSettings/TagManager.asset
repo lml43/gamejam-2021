@@ -16,6 +16,7 @@ TagManager:
   - Heart2
   - Heart1
   - Boss
+  - Student
   layers:
   - Default
   - TransparentFX
