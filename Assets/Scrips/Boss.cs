@@ -6,15 +6,20 @@ using UnityEditor;
 public class Boss : MonoBehaviour
 {
   public Transform player;
-  public float moveSpeed = 20f;
+  public float moveSpeed = 3.5f;
+  public float chargeSpeed = 6f;
   public Transform[] moveSpots;
+  public float maxHealth = 10f;
+  public float maxChaseTime = 5f;
+  public float timeToCharge = 2f;
 
   private Rigidbody2D body;
   private Vector2 movementToPlayer;
   private Vector2 movementToSpot;
 
   private int randomSpot;
-  private int[] traveledSpots = new int[0];
+
+  private float chaseTime = 0;
 
   void Start() {
     body = this.GetComponent<Rigidbody2D>();
@@ -33,34 +38,33 @@ public class Boss : MonoBehaviour
     float distanceToSpot = Vector3.Distance(transform.position, moveSpots[randomSpot].position);
 
     if (distanceToSpot < 0.5f) {
-      if (traveledSpots.Length == moveSpots.Length) {
-        Debug.Log("FULL");
-        ArrayUtility.Clear(ref traveledSpots);
-        randomSpot = Random.Range(0, moveSpots.Length);
-      } else {
-        randomSpot = GetNewSpot(randomSpot);
-      }
+      randomSpot = GetNewSpot(randomSpot);
     }
-
-    // Debug.Log(traveledSpots);
 
     Vector3 directionToSpot = moveSpots[randomSpot].position - transform.position;
 
     directionToSpot.Normalize();
     movementToSpot = directionToSpot;
+
+    // Count down chase time
+    if (chaseTime > 0) {
+      chaseTime -= Time.deltaTime;
+    }
   }
 
   private void FixedUpdate() {
-    // ChasePlayer(movementToPlayer);
-    MoveToSpot(movementToSpot);
+    if (chaseTime <= 0) {
+      MoveToSpot(movementToSpot);
+    } else if (chaseTime < timeToCharge) {
+      ChargePlayer(movementToPlayer);
+    } else {
+      ChasePlayer(movementToPlayer);
+    }
   }
 
   int GetNewSpot(int currentSpot) {
-    // Add traveled spot
-    ArrayUtility.Add(ref traveledSpots, currentSpot);
-
     int random = Random.Range(0, moveSpots.Length);
-    while (ArrayUtility.IndexOf(traveledSpots, random) != -1) {
+    while (random == currentSpot) {
       random = Random.Range(0, moveSpots.Length);
     }
     return random;
@@ -72,5 +76,18 @@ public class Boss : MonoBehaviour
 
   void ChasePlayer(Vector2 direction) {
     body.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
+  }
+
+  void ChargePlayer(Vector2 direction) {
+    body.MovePosition((Vector2)transform.position + (direction * chargeSpeed * Time.deltaTime));
+  }
+
+  public void TakeDamage(float damage) {
+    maxHealth -= damage;
+    chaseTime = maxChaseTime;
+
+    if (maxHealth <= 0) {
+      this.gameObject.SetActive(false);
+    }
   }
 }

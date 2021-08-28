@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 8075084386588726108}
   - component: {fileID: 8075084386588726110}
   - component: {fileID: 8075084386588726111}
-  - component: {fileID: 6899008880969681402}
   - component: {fileID: 8361543629387072445}
-  m_Layer: 9
+  - component: {fileID: 1473027822}
+  m_Layer: 12
   m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8075084386588726103}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 31.16, y: 7.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -169,22 +169,6 @@ MonoBehaviour:
   thrust: 5
   knockTime: 0.2
   damage: 30
---- !u!114 &6899008880969681402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8075084386588726103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed0de3d2be4bc428b83a2e48915e91c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentState: 1
-  baseAttack: 1
-  moveSpeed: 150
-  maxHealth: {fileID: 11400000, guid: 816b23927e91d452fa93539121405ca5, type: 2}
 --- !u!58 &8361543629387072445
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -201,3 +185,24 @@ CircleCollider2D:
   m_Offset: {x: -0.014564514, y: -0.46125245}
   serializedVersion: 2
   m_Radius: 0.3202591
+--- !u!114 &1473027822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8075084386588726103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3063e71c1d35407894e0a71a4528634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  moveSpeed: 5
+  moveSpots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  maxHealth: {fileID: 0}
