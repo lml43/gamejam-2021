@@ -74,3 +74,8 @@ MonoBehaviour:
     volume: 1
     pitch: 1.39
     source: {fileID: 0}
+  - name: Drink
+    clip: {fileID: 8300000, guid: dfe3bf65e736a497e8d1e69d4edca357, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}

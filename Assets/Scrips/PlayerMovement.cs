@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Healing") && StateControl.Instance.hasHeart) {
             StateControl.Instance.hasHeart = false;
             FindObjectOfType<GameManager>().IncreaseHealth();
+            FindObjectOfType<AudioManager>().Play("Drink");
         }
     }
 
