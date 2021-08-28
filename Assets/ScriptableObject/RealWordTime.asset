@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 719b0cb74b67f439590b78ae328fbdc8, type: 3}
   m_Name: RealWordTime
   m_EditorClassIdentifier: 
-  initialValue: 30
-  runtimeValue: 0
+  initialValue: 10
+  runtimeValue: 10

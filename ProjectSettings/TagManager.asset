@@ -17,6 +17,8 @@ TagManager:
   - Heart1
   - Boss
   - Student
+  - WrenchBox
+  - Heart
   layers:
   - Default
   - TransparentFX

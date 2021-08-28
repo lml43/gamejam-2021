@@ -6,6 +6,9 @@ public class Lootable : MonoBehaviour
 {
     public GameObject itemGFX;
     public GameObject fireBox;
+    public GameObject wrenchBox;
+    public GameObject heart1;
+    public GameObject heart2;
 
     private bool isPlayerInRange;
     private GameObject player;
@@ -45,12 +48,22 @@ public class Lootable : MonoBehaviour
 
             if (gameObject.CompareTag("Wrench")) {
                 StateControl.Instance.hasWrench = true;
+                wrenchBox.GetComponent<Animator>().SetBool("looted", true);
             }
 
-            if (gameObject.CompareTag("Heart1") || gameObject.CompareTag("Heart2")) {
+            if (gameObject.CompareTag("Heart1")) {
                 if (StateControl.Instance.hasHeart) {
                     return;
                 }
+                StateControl.Instance.lootHeart1 = true;
+                StateControl.Instance.hasHeart = true;
+            }
+
+            if (gameObject.CompareTag("Heart2")) {
+                if (StateControl.Instance.hasHeart) {
+                    return;
+                }
+                StateControl.Instance.lootHeart2 = true;
                 StateControl.Instance.hasHeart = true;
             }
 

@@ -16,6 +16,11 @@ public class Knowback : MonoBehaviour
                 other.GetComponent<Breakable>().Smash();
                 StateControl.Instance.didFireBoxBroke = true;
             }
+
+            if (other.gameObject.CompareTag("WrenchBox")) {
+                other.GetComponent<Breakable>().Smash();
+                StateControl.Instance.didWrenchBoxBroke = true;
+            }
         }
 
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Boss")) {

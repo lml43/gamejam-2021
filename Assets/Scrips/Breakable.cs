@@ -26,7 +26,7 @@ public class Breakable : MonoBehaviour
 
     IEnumerator breakCo() {
         yield return new WaitForSeconds(inactiveAfter);
-        this.gameObject.SetActive(false);
+        // this.gameObject.SetActive(false);
         if (item != null) {
             item.SetActive(true);
         }

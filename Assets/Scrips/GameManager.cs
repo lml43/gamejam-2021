@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject pipe;
     public GameObject wrench;
     public GameObject fireBox;
+    public GameObject wrenchBox;
     public GameObject heart1;
     public GameObject heart2;
 
@@ -106,12 +107,6 @@ public class GameManager : MonoBehaviour
             heart2.SetActive(false);
         }
 
-        if (StateControl.Instance.hasGun) {
-            player.GetComponent<Animator>().SetBool("hasGun", true);
-            itemGun.SetActive(true);
-            itemList.Add(itemGun);
-        }
-
         if (StateControl.Instance.hasPipe) {
             itemPipe.SetActive(true);
             itemList.Add(itemPipe);
@@ -128,11 +123,32 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (StateControl.Instance.hasWrench) {
-            itemWrench.SetActive(true);
-            itemList.Add(itemWrench);
+        if (StateControl.Instance.didWrenchBoxBroke) {
+            if (StateControl.Instance.hasWrench) {
+                itemWrench.SetActive(true);
+                itemList.Add(itemWrench);
+
+                if (isRealWorld) {
+                    wrenchBox.GetComponent<Animator>().SetBool("looted", true);
+                }
+            }
+            
             if (isRealWorld) {
+                wrenchBox.GetComponent<Animator>().SetBool("smash", true);
+            }
+        }
+
+        if (StateControl.Instance.hasGun) {
+            player.GetComponent<Animator>().SetBool("hasGun", true);
+            itemGun.SetActive(true);
+            itemList.Add(itemGun);
+
+            if (isRealWorld) {
+                pipe.SetActive(false);
+                chemical.SetActive(false);
                 wrench.SetActive(false);
+                fireBox.GetComponent<Animator>().SetBool("looted", true);
+                wrenchBox.GetComponent<Animator>().SetBool("looted", true);
             }
         }
 
