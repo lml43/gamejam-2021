@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RealWordTime
   m_EditorClassIdentifier: 
   initialValue: 30
-  runtimeValue: 0
+  runtimeValue: 21

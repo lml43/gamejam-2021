@@ -41,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
         } else if (currentState.runtimeValue == PlayerState.walk || currentState.runtimeValue == PlayerState.idle || currentState.runtimeValue == PlayerState.untouchable) {
             UpdateAnimationAndMove();
         }
+
+        if (Input.GetButtonDown("Healing") && StateControl.Instance.hasHeart) {
+            StateControl.Instance.hasHeart = false;
+            FindObjectOfType<GameManager>().IncreaseHealth();
+        }
     }
 
     private IEnumerator AttackCo() {
@@ -48,17 +53,18 @@ public class PlayerMovement : MonoBehaviour
         currentState.runtimeValue = PlayerState.attack;
         yield return null;
         animator.SetBool("attacking", false);
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.2f);
         currentState.runtimeValue = PlayerState.walk;
     }
 
     private IEnumerator ShootCo() {
-        // animator.SetBool("attacking", true);
+        animator.SetBool("shooting", true);
         currentState.runtimeValue = PlayerState.attack;
         yield return null;
+        animator.SetBool("shooting", false);
+        yield return new WaitForSeconds(.25f);
         MakeBullet();
-        // animator.SetBool("attacking", false);
-        yield return new WaitForSeconds(.3f);
+
         currentState.runtimeValue = PlayerState.walk;
     }
 

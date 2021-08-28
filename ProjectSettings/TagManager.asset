@@ -13,7 +13,12 @@ TagManager:
   - FireExtinguisher
   - FireBox
   - Wrench
+  - Heart2
+  - Heart1
   - Boss
+  - Student
+  - WrenchBox
+  - Heart
   layers:
   - Default
   - TransparentFX

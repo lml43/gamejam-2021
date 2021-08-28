@@ -7,7 +7,6 @@ public class PlayerManager : MonoBehaviour
 
     public IntValue playerHealth;
     public PlayerStateValue currentState;
-    public int heartValue;
     public float untouchableTime;
     public BoolValue isFirstLoad;
 
@@ -26,13 +25,6 @@ public class PlayerManager : MonoBehaviour
         renderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
-    }
-    
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("Item")) {
-            other.gameObject.SetActive(false);
-            IncreaseHealth(heartValue);
-        }
     }
 
     public void Blur() {
@@ -82,7 +74,4 @@ public class PlayerManager : MonoBehaviour
         FindObjectOfType<GameManager>().ReloadGame();
     }
 
-    private void IncreaseHealth(int value) {
-        playerHealth.runtimeValue = Mathf.Min(playerHealth.initialValue, playerHealth.runtimeValue + value);
-    }
 }
