@@ -159,6 +159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971099da5b9014009b9ac1ccab8c1294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 2
-  knockTime: 0.3
+  thrust: 1
+  knockTime: 0.2
   damage: 1
