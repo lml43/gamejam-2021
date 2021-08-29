@@ -4,7 +4,8 @@ using UnityEngine.SceneManagement;
 public class Popups : MonoBehaviour
 {
 
-    public GameObject popups;
+    public GameObject popupsHamburger;
+    public GameObject popupsInfo;
 
     // TODO move to GameManager
 
@@ -15,11 +16,19 @@ public class Popups : MonoBehaviour
     }
 
     public void ShowPopups() {
-        popups.SetActive(true);
+        popupsHamburger.SetActive(true);
     }
 
     public void HidePopups() {
-        popups.SetActive(false);
+        popupsHamburger.SetActive(false);
+    }
+
+    public void ShowPopupsInfo() {
+        popupsInfo.SetActive(true);
+    }
+
+    public void HidePopupsInfo() {
+        popupsInfo.SetActive(false);
     }
 
 }

@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         if (isFirstLoad.runtimeValue) {
+            FindObjectOfType<Popups>().ShowPopupsInfo();
             isFirstLoad.runtimeValue = false;
             // GenerateItems();
         }

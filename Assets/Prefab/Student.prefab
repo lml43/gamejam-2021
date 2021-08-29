@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  nextWaypointDistance: 2
+  nextWaypointDistance: 1
   startWaitTime: 1
   minPosition: {x: -15.5, y: -7.75}
   maxPosition: {x: 12.5, y: 17}
