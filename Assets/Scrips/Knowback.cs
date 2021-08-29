@@ -23,13 +23,14 @@ public class Knowback : MonoBehaviour
             }
         }
 
-        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Boss")) {
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Boss") || other.gameObject.CompareTag("Student")) {
             Rigidbody2D hit = other.GetComponent<Rigidbody2D>();
 
             if (hit != null) {
                 bool isOtherEnemy = other.gameObject.CompareTag("Enemy");
                 bool isOtherPlayer = other.gameObject.CompareTag("Player");
                 bool isOtherBoss = other.gameObject.CompareTag("Boss");
+                bool isOtherStudent = other.gameObject.CompareTag("Student");
                 
                 Vector2 difference = hit.transform.position - transform.position;
                 difference = difference.normalized * thrust;
@@ -39,14 +40,13 @@ public class Knowback : MonoBehaviour
                     hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
                     other.GetComponent<Enemy>().Knock(hit, knockTime, damage);
                 } else if(isOtherBoss) {
-                    // hit.GetComponent<Enemy>().currentState = EnemyState.stagger;
                     other.GetComponent<Boss>().TakeDamage(damage);
+                } else if (isOtherStudent) {
+                    other.GetComponent<Student>().Knock(knockTime, damage);
                 } else if (isOtherPlayer && other.GetComponent<PlayerManager>().currentState.runtimeValue != PlayerState.stagger){
                     other.GetComponent<PlayerManager>().currentState.runtimeValue = PlayerState.stagger;
                     other.GetComponent<PlayerManager>().Knock(knockTime, damage);
                 }
-
-                
             } 
         }
     }
