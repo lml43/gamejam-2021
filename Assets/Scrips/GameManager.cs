@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
 	[Space]
     public GameObject gunPopups;
     public GameObject rulerPopups;
+    public GameObject telepopups;
+    public GameObject wonPopups;
+    public GameObject lostPopups;
 
     private GameObject itemChemical;
     private GameObject itemRuler;
@@ -217,11 +220,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ShowLostPopups() {
+        lostPopups.SetActive(true);
+    }
+
+    public void ShowWonPopups() {
+        wonPopups.SetActive(true);
+    }
+
     public void ShowRulerPopups() {
         StartCoroutine(ShowPopups(rulerPopups));
     }
     public void ShowGunPopups() {
         StartCoroutine(ShowPopups(gunPopups));
+    }
+
+    public void ShowTelePopups() {
+        StartCoroutine(ShowPopups(telepopups));
     }
 
     private IEnumerator ShowPopups(GameObject popups) {

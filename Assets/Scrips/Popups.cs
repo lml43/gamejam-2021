@@ -10,6 +10,7 @@ public class Popups : MonoBehaviour
 
 
     public void BackToMenu() {
+        StateControl.Instance.ResetState();
         SceneManager.LoadScene("Menu");
     }
 

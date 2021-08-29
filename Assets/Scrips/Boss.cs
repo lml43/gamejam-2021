@@ -117,8 +117,13 @@ public class Boss : MonoBehaviour
 
     if (maxHealth <= 0) {
       // TODO: Endgame
-      this.gameObject.SetActive(false);
+      StartCoroutine(EndGame());
     }
+  }
+
+  private IEnumerator EndGame() {
+    yield return new WaitForSeconds(1);
+    FindObjectOfType<GameManager>().ShowWonPopups();
   }
 
   private void ChangeAnim(Vector2 direction) {
@@ -129,11 +134,11 @@ public class Boss : MonoBehaviour
             SetAnimVector(Vector2.left);
         }
     } else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) {
-        if (direction.y > 0) {
-            SetAnimVector(Vector2.up);
-        } else if (direction.y < 0) {
-            SetAnimVector(Vector2.down);
-        }
+      if (direction.y > 0) {
+          SetAnimVector(Vector2.up);
+      } else if (direction.y < 0) {
+          SetAnimVector(Vector2.down);
+      }
     }
   }
 

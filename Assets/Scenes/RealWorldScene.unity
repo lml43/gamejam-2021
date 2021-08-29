@@ -121,6 +121,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &57087717 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8776522107424159830, guid: 59c26a48af3b741f880ec2c5b503f443,
+    type: 3}
+  m_PrefabInstance: {fileID: 8776522107029408919}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc523870f97f04ad6a5a8fbe8f2f5e90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &103017619 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4680749561683098719, guid: 34cbfa1c9148b4e4da6fa52e631bfdee,
@@ -3365,6 +3377,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6618740310762586910, guid: 34cbfa1c9148b4e4da6fa52e631bfdee,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 57087717}
+    - target: {fileID: 6618740310762586910, guid: 34cbfa1c9148b4e4da6fa52e631bfdee,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadGame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34cbfa1c9148b4e4da6fa52e631bfdee, type: 3}
 --- !u!1001 &3668337583888807839
@@ -3447,16 +3469,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: State Control
-      objectReference: {fileID: 0}
-    - target: {fileID: 3616578556128239632, guid: a98b1d6a4241e41acbd93b5e22bb92b4,
-        type: 3}
-      propertyPath: playerPos.x
-      value: -7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3616578556128239632, guid: a98b1d6a4241e41acbd93b5e22bb92b4,
-        type: 3}
-      propertyPath: playerPos.y
-      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 5002252810971290413, guid: a98b1d6a4241e41acbd93b5e22bb92b4,
         type: 3}

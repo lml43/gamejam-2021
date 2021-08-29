@@ -27,6 +27,7 @@ public class SceneTransition : MonoBehaviour
                 SceneManager.LoadScene(scenceToLoad);
             } else if (!hasShown) {
                 hasShown = true;
+                FindObjectOfType<GameManager>().ShowTelePopups();
                 System.Random ran = new System.Random();
                 int randomIdx = ran.Next(spots.Length);
                 transform.position = spots[randomIdx].position;

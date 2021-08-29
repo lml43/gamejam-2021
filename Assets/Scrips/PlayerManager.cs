@@ -70,8 +70,8 @@ public class PlayerManager : MonoBehaviour
     }
 
     private IEnumerator ReloadGame() {
-        yield return new WaitForSeconds(3);
-        FindObjectOfType<GameManager>().ReloadGame();
+        yield return new WaitForSeconds(1);
+        FindObjectOfType<GameManager>().ShowLostPopups();
     }
 
 }
