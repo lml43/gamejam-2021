@@ -53,6 +53,7 @@ public class Student : MonoBehaviour
 
     private IEnumerator Inactive() {
         yield return new WaitForSeconds(2f);
+        this.gameObject.SetActive(false);
     }
 
 }

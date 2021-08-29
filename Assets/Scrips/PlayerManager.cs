@@ -32,6 +32,7 @@ public class PlayerManager : MonoBehaviour
         currentState.runtimeValue = PlayerState.untouchable;
         
         Physics2D.IgnoreLayerCollision(9, 10);
+        Physics2D.IgnoreLayerCollision(12, 10);
 
         StartCoroutine(UnBlur(untouchableTime));
     }
@@ -61,6 +62,7 @@ public class PlayerManager : MonoBehaviour
         currentState.runtimeValue = PlayerState.idle;
         renderer.color = new Color(1f,1f,1f,1f);
         Physics2D.IgnoreLayerCollision(9, 10, false);
+        Physics2D.IgnoreLayerCollision(12, 10, false);
     }
 
     private IEnumerator KnockCo(float knockTime) {
