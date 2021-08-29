@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 1
   baseAttack: 1
-  moveSpeed: 20
+  moveSpeed: 100
   maxHealth: {fileID: 11400000, guid: 816b23927e91d452fa93539121405ca5, type: 2}
 --- !u!114 &3498043802736890631
 MonoBehaviour:

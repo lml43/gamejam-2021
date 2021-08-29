@@ -149,8 +149,11 @@ public class Boss : MonoBehaviour
 
   private IEnumerator AngryCo() {
     anim.SetBool("isAngry", true);
+    FindObjectOfType<AudioManager>().Play("Angry");
     yield return new WaitForSeconds(1.2f);
-    Attack(target);
+    if (maxHealth > 0) {
+      Attack(target);
+    }
   }
 
   private void Attack(Transform target) {

@@ -229,7 +229,7 @@ Transform:
   - {fileID: 897631980}
   - {fileID: 995147303}
   m_Father: {fileID: 989630932}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &129619891
 GameObject:
@@ -324,7 +324,7 @@ Transform:
   - {fileID: 1265086819}
   - {fileID: 638828406}
   m_Father: {fileID: 989630932}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &168539580
 GameObject:
@@ -359,7 +359,7 @@ Transform:
   - {fileID: 1582177138}
   - {fileID: 129619892}
   m_Father: {fileID: 989630932}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &174914686
 GameObject:
@@ -2088,7 +2088,7 @@ PrefabInstance:
     - target: {fileID: 3338927428074091011, guid: 88c097b6fafd34d23b25075c4f88b009,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3338927428074091011, guid: 88c097b6fafd34d23b25075c4f88b009,
         type: 3}
@@ -3437,11 +3437,11 @@ Transform:
   - {fileID: 796808507}
   - {fileID: 29805739}
   - {fileID: 773314867}
+  - {fileID: 56241263}
   - {fileID: 8075084385853902265}
   - {fileID: 94542358}
   - {fileID: 168539581}
   - {fileID: 159576023}
-  - {fileID: 56241263}
   - {fileID: 2125057995}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -5449,7 +5449,7 @@ PrefabInstance:
     - target: {fileID: 3616578556128239632, guid: a98b1d6a4241e41acbd93b5e22bb92b4,
         type: 3}
       propertyPath: hasGun
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3616578556128239632, guid: a98b1d6a4241e41acbd93b5e22bb92b4,
         type: 3}
@@ -5961,7 +5961,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 989630932}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8075084385853902266
 SpriteRenderer:

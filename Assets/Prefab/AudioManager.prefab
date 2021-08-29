@@ -79,3 +79,8 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - name: Angry
+    clip: {fileID: 8300000, guid: 9245600b6b4a84727bde6d8a25626896, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
