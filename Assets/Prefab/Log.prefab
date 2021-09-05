@@ -211,10 +211,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0de3d2be4bc428b83a2e48915e91c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTutorial: 0
   currentState: 1
   baseAttack: 1
   moveSpeed: 100
+  deadTime: 2
   maxHealth: {fileID: 11400000, guid: 816b23927e91d452fa93539121405ca5, type: 2}
+  isPaused: {fileID: 0}
 --- !u!114 &3498043802736890631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {fileID: 11400000, guid: 5350efb374f654db58cc036ab90ed4f5, type: 2}
+  isPaused: {fileID: 11400000, guid: b1117ae99c24e41779a01f60dd45fd36, type: 2}
   nextWaypointDistance: 1
   chaseRadius: 5
   attackRadius: 1

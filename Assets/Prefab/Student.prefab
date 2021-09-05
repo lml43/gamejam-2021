@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a307cae3a084938bdacaeb7d2d5092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: {fileID: 11400000, guid: b1117ae99c24e41779a01f60dd45fd36, type: 2}
   speed: 200
   nextWaypointDistance: 1
   startWaitTime: 1

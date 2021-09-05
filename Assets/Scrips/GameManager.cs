@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    public BoolValue isFirstLoad;
+
+    public BoolValue isPaused;
     public GameObject player;
     public bool isRealWorld;
 
@@ -38,7 +39,8 @@ public class GameManager : MonoBehaviour
     private GameObject itemGun;
     private GameObject itemWrench;
     private GameObject itemHeart;
-    private List<GameObject> itemList;
+
+    private HashSet<string> itemsForGun;
 
     private bool showGunPopups;
 
@@ -50,19 +52,15 @@ public class GameManager : MonoBehaviour
 
 
     // private int nextTimestamp = 3;
-    private GameObject[] breakableObjects;
+    // private GameObject[] breakableObjects;
 
     void Start()
     {
-        if (isFirstLoad.runtimeValue) {
-            FindObjectOfType<Popups>().ShowPopupsInfo();
-            isFirstLoad.runtimeValue = false;
-            // GenerateItems();
-        }
+        Debug.Log(StateControl.Instance.itemArr.Length);
+
         InitItemsGFX();
     }
 
-    // TODO: move to GameManager
     private void InitItemsGFX() {
         itemChemical = GameObject.Find("/Canvas/ItemBar/ItemChemical");
         itemRuler = GameObject.Find("/Canvas/ItemBar/ItemRuler");
@@ -72,35 +70,20 @@ public class GameManager : MonoBehaviour
         itemWrench = GameObject.Find("/Canvas/ItemBar/ItemWrench");
         itemHeart = GameObject.Find("/Canvas/ItemBar/ItemHeart");
 
-        itemList = new List<GameObject>();
+        itemsForGun = new HashSet<string>();
+        itemsForGun.Add("FireExtinguisher");
+        itemsForGun.Add("Wrench");
+        itemsForGun.Add("Chemical");
+        itemsForGun.Add("Pipe");
 
-        if (StateControl.Instance.didFireBoxBroke) {
-            if (StateControl.Instance.hasFire) {
-                itemFire.SetActive(true);
-                itemList.Add(itemFire);
 
-                if (isRealWorld) {
-                    fireBox.GetComponent<Animator>().SetBool("looted", true);
-                }
-            }
-            
-            if (isRealWorld) {
-                fireBox.GetComponent<Animator>().SetBool("smash", true);
-            }
+
+        if (isRealWorld && StateControl.Instance.didFireBoxBroke) {
+            fireBox.GetComponent<Animator>().SetBool("smash", true);
         }
 
-        if (StateControl.Instance.hasRuler) {
-            player.GetComponent<Animator>().SetBool("hasRuler", true);
-            itemRuler.SetActive(true);
-            itemList.Add(itemRuler);
-            if (isRealWorld) {
-                ruler.SetActive(false);
-            }
-        }
-
-        if (StateControl.Instance.hasHeart) {
-            itemHeart.SetActive(true);
-            itemList.Add(itemHeart);
+        if (isRealWorld && StateControl.Instance.didWrenchBoxBroke) {           
+            wrenchBox.GetComponent<Animator>().SetBool("smash", true);
         }
 
         if (isRealWorld && StateControl.Instance.lootHeart1) {
@@ -111,48 +94,52 @@ public class GameManager : MonoBehaviour
             heart2.SetActive(false);
         }
 
-        if (StateControl.Instance.hasPipe) {
-            itemPipe.SetActive(true);
-            itemList.Add(itemPipe);
-            if (isRealWorld) {
-                pipe.SetActive(false);
-            }
-        }
-
-        if (StateControl.Instance.hasChemical) {
-            itemChemical.SetActive(true);
-            itemList.Add(itemChemical);
-            if (isRealWorld) {
-                chemical.SetActive(false);
-            }
-        }
-
-        if (StateControl.Instance.didWrenchBoxBroke) {
-            if (StateControl.Instance.hasWrench) {
-                itemWrench.SetActive(true);
-                itemList.Add(itemWrench);
-
-                if (isRealWorld) {
-                    wrenchBox.GetComponent<Animator>().SetBool("looted", true);
-                }
-            }
-            
-            if (isRealWorld) {
-                wrenchBox.GetComponent<Animator>().SetBool("smash", true);
-            }
-        }
-
-        if (StateControl.Instance.hasGun) {
-            player.GetComponent<Animator>().SetBool("hasGun", true);
-            itemGun.SetActive(true);
-            itemList.Add(itemGun);
-
-            if (isRealWorld) {
-                pipe.SetActive(false);
-                chemical.SetActive(false);
-                wrench.SetActive(false);
-                fireBox.GetComponent<Animator>().SetBool("looted", true);
-                wrenchBox.GetComponent<Animator>().SetBool("looted", true);
+        for (int i = 0; i < 5; i++) {
+            switch (StateControl.Instance.itemArr[i]) {
+                case "FireExtinguisher": 
+                    AddItem(StateControl.Instance.itemArr, "FireExtinguisher", i); 
+                    if (isRealWorld) {
+                        fireBox.GetComponent<Animator>().SetBool("looted", true);
+                    }
+                    break;
+                case "Ruler": AddItem(StateControl.Instance.itemArr, "Ruler", i); 
+                    player.GetComponent<Animator>().SetBool("hasRuler", true);
+                    if (isRealWorld) {
+                        ruler.SetActive(false);
+                    }
+                    break;
+                case "Gun": 
+                    AddItem(StateControl.Instance.itemArr, "Gun", i); 
+                    player.GetComponent<Animator>().SetBool("hasGun", true);
+                    if (isRealWorld) {
+                        pipe.SetActive(false);
+                        chemical.SetActive(false);
+                        wrench.SetActive(false);
+                        fireBox.GetComponent<Animator>().SetBool("looted", true);
+                        wrenchBox.GetComponent<Animator>().SetBool("looted", true);
+                    }
+                    break;
+                case "Wrench": 
+                    AddItem(StateControl.Instance.itemArr, "Wrench", i); 
+                    if (isRealWorld) {
+                        wrenchBox.GetComponent<Animator>().SetBool("looted", true);
+                    }
+                    break;
+                case "Chemical": 
+                    AddItem(StateControl.Instance.itemArr, "Chemical", i); 
+                     if (isRealWorld) {
+                        chemical.SetActive(false);
+                    }
+                    break;
+                case "Pipe": 
+                    AddItem(StateControl.Instance.itemArr, "Pipe", i); 
+                    if (isRealWorld) {
+                        pipe.SetActive(false);
+                    }
+                    break;
+                case "Heart1": AddItem(StateControl.Instance.itemArr, "Heart1", i); break;
+                case "Heart2": AddItem(StateControl.Instance.itemArr, "Heart2", i); break;
+                default: break;
             }
         }
 
@@ -161,7 +148,8 @@ public class GameManager : MonoBehaviour
 
 
     public void IncreaseHealth() {
-        itemList.Remove(itemHeart);
+        RemoveItem(StateControl.Instance.itemArr, "Heart1");
+        RemoveItem(StateControl.Instance.itemArr, "Heart2");
         itemHeart.SetActive(false);
         playerHealth.runtimeValue = Mathf.Min(playerHealth.initialValue, playerHealth.runtimeValue + heartValue);
     }
@@ -171,53 +159,27 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("RealWorldScene");
     }
 
-
-    // TODO: move to GameManager
-    public int AddItem(GameObject item) {
-        itemList.Add(item);
-        return itemList.Count;
-    }
-
     // TODO: move to GameManager
     public void CheckGunMaterials() {
-        if (itemList.Contains(itemChemical) 
-            && itemList.Contains(itemPipe) 
-            && itemList.Contains(itemFire)
-            && itemList.Contains(itemWrench)
-        ) {
+
+        if (ContainsAll(StateControl.Instance.itemArr, itemsForGun)) {
             StartCoroutine(ShowPopups(gunPopups));
 
             FindObjectOfType<AudioManager>().Play("Gun");
             player.GetComponent<Animator>().SetBool("hasGun", true);
 
-            itemList.Remove(itemChemical);
-            itemList.Remove(itemPipe);
-            itemList.Remove(itemFire);
-            itemList.Remove(itemWrench);
+            RemoveItem(StateControl.Instance.itemArr, itemsForGun);
 
             itemChemical.SetActive(false);
             itemPipe.SetActive(false);
             itemFire.SetActive(false);
             itemWrench.SetActive(false);
 
-            StateControl.Instance.hasFire = false;
-            StateControl.Instance.hasChemical = false;
-            StateControl.Instance.hasPipe = false;
-            StateControl.Instance.hasWrench = false;
-
-            itemList.Add(itemGun);
+            AddItem(StateControl.Instance.itemArr, "Gun");
             itemGun.SetActive(true);
             StateControl.Instance.hasGun = true;
 
             RenderItemGFX();
-        }
-    }
-
-    // TODO: move to GameManager
-    private void RenderItemGFX() {
-        for (int i = 0; i < itemList.Count; i++) {
-            Vector3 pos = new Vector3(46 * (i - 2), 0, 0);
-            itemList[i].GetComponent<RectTransform>().localPosition = pos;
         }
     }
 
@@ -254,6 +216,80 @@ public class GameManager : MonoBehaviour
             pos.y -= 4f;
             popups.GetComponent<RectTransform>().localPosition = pos;
             yield return new WaitForSeconds (0.01f);
+        }
+    }
+
+    private bool ContainsAll(string[] arr, HashSet<string> gunItems) {
+        int count = 0;
+        for (int i = 0; i < arr.Length; i++) {
+            if (gunItems.Contains(arr[i])) {
+                count++;
+            }
+        }
+        return count == 4;
+    }
+
+    private void RemoveItem(string[] arr, string strToRemove) {
+        for (int i = 0; i < arr.Length; i++) {
+            if (strToRemove == arr[i]) {
+                arr[i] = "";
+            }
+        }
+    }
+
+    public int AddItem(string[] arr, string strToAdd) {
+        for (int i = 0; i < arr.Length; i++) {
+            // Debug.Log(i + ": " + arr[i]);
+            if (arr[i] == "") {
+                arr[i] = strToAdd;
+                return i;
+            }
+        }
+        return 0;
+    }
+
+    public int AddItem(string[] arr, string strToAdd, int i) {
+        arr[i] = strToAdd;
+        return i;
+    }
+
+    private void RemoveItem(string[] arr, HashSet<string> gunItems) {
+        for (int i = 0; i < arr.Length; i++) {
+            if (gunItems.Contains(arr[i])) {
+                arr[i] = "";
+            }
+        }
+    }
+
+    // TODO: move to GameManager
+    private void RenderItemGFX() {
+        for (int i = 0; i < 5; i++) {
+            string itemStr = StateControl.Instance.itemArr[i];
+            
+            if (itemStr == "") {
+                continue;
+            }
+
+            GameObject itemGFX;
+
+            switch (itemStr) {
+                case "FireExtinguisher": itemGFX = itemFire; break;
+                case "Ruler": itemGFX = itemRuler; break;
+                case "Gun": itemGFX = itemGun; break;
+                case "Wrench": itemGFX = itemWrench; break;
+                case "Chemical": itemGFX = itemChemical; break;
+                case "Pipe": itemGFX = itemPipe; break;
+                case "Heart1": itemGFX = itemHeart; break;
+                case "Heart2": itemGFX = itemHeart; break;
+                default: itemGFX = null; break;
+            }
+
+            Vector3 pos = new Vector3(46 * (i - 2), 0, 0);
+
+            if (itemGFX != null) {
+                itemGFX.SetActive(true);
+                itemGFX.GetComponent<RectTransform>().localPosition = pos;
+            }
         }
     }
 

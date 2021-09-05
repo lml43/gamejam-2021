@@ -13,10 +13,14 @@ public enum EnemyState {
 public class Enemy : MonoBehaviour
 {
 
+    public bool isTutorial;
+
     public EnemyState currentState;
     public int baseAttack;
     public float moveSpeed;
+    public float deadTime = 2f;
     public FloatValue maxHealth;
+    public BoolValue isPaused;
 
     public void ChangeState(EnemyState newState) {
         if (newState != currentState) {
@@ -35,13 +39,20 @@ public class Enemy : MonoBehaviour
         if (maxHealth.runtimeValue <= 0) {
             this.gameObject.GetComponent<Animator>().SetBool("isDead", true);
             myRb.velocity = Vector2.zero;
-            StartCoroutine(Inactive(2f));
+            StartCoroutine(Inactive(deadTime));
         }
     }
 
     private IEnumerator Inactive(float time) {
         yield return new WaitForSeconds(time);
         this.gameObject.SetActive(false);
+        if (isTutorial) {
+            if (TutorialManager.step == 1) {
+                TutorialManager.smashed = true;
+            } else if (TutorialManager.step == 2) {
+                TutorialManager.shooted = true;
+            }
+        }
     }
 
     private IEnumerator KnockCo(Rigidbody2D myRb, float knockTime) {

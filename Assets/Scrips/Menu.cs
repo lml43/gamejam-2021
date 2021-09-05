@@ -7,22 +7,24 @@ public class Menu : MonoBehaviour
 {
 
     public string gameScene;
-    public GameObject howToPlay;
+    public GameObject scripPopups;
+    public TutorialManager tutorialManager;
 
     public void LoadMenuScene() {
         SceneManager.LoadScene(0);
     }
 
     public void LoadGameScene() {
+        StateControl.Instance.ResetState();
         SceneManager.LoadScene(gameScene);
     }
 
-    public void ShowHowToPlay() {
-        howToPlay.SetActive(true);
+    public void ReloadTutorial() {
+        tutorialManager.ReloadTutorial();
     }
 
     public void HideHowToPlay() {
-        howToPlay.SetActive(false);
+        scripPopups.SetActive(false);
     }
 
     public void QuitGame() {

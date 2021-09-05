@@ -5,6 +5,7 @@ using UnityEditor;
 
 public class Boss : MonoBehaviour
 {
+  public BoolValue isPaused;
   public Transform player;
   public float moveSpeed = 3.5f;
   public float chargeSpeed = 6f;
@@ -38,6 +39,10 @@ public class Boss : MonoBehaviour
 
   void Update() {
     // Calculate movement to player
+    if (isPaused.runtimeValue) {
+      return;
+    }
+
     Vector3 directionToPlayer = player.position - transform.position;
 
     directionToPlayer.Normalize();
@@ -64,7 +69,11 @@ public class Boss : MonoBehaviour
   }
 
   private void FixedUpdate() {
-
+    if (isPaused.runtimeValue) {
+      body.velocity = Vector2.zero;
+      return;
+    }
+    
     if (anim.GetBool("chasing") && isOutOfBound()) {
       anim.SetBool("chasing", false);
       anim.SetBool("isAngry", false);

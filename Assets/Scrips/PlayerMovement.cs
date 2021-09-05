@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public PlayerStateValue currentState;
     public GameObject bulletObject;
+    public BoolValue isPaused;
 
     private Rigidbody2D myRigidbody;
     private Vector3 change;
@@ -26,12 +27,20 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isPaused.runtimeValue) {
+            return;
+        }
+
         change = Vector2.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
     }
 
     void FixedUpdate() {
+        if (isPaused.runtimeValue) {
+            return;
+        }
+
         if (Input.GetButtonDown("Attack") && currentState.runtimeValue != PlayerState.attack && currentState.runtimeValue != PlayerState.stagger && currentState.runtimeValue != PlayerState.untouchable) {
             StartCoroutine(AttackCo());
             MoveChar();

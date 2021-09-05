@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public bool isTutorial;
 
     public IntValue playerHealth;
     public PlayerStateValue currentState;
@@ -21,6 +22,7 @@ public class PlayerManager : MonoBehaviour
             transform.position = StateControl.Instance.playerPos;
         }
 
+        currentState.runtimeValue = PlayerState.idle;
         myRigidbody = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -44,7 +46,10 @@ public class PlayerManager : MonoBehaviour
             isProtected = false;
         } else {
             FindObjectOfType<AudioManager>().Play("Hurt");
-            playerHealth.runtimeValue -= damage;
+
+            if (!isTutorial) {
+                playerHealth.runtimeValue -= damage;
+            }
         }
 
 

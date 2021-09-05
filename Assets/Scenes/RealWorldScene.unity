@@ -2131,7 +2131,7 @@ PrefabInstance:
     - target: {fileID: 7849642552362841809, guid: 29142ffb6d3c74718b16049b5e499c18,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7849642552362841809, guid: 29142ffb6d3c74718b16049b5e499c18,
         type: 3}
@@ -3077,6 +3077,12 @@ PrefabInstance:
       propertyPath: stateControl
       value: 
       objectReference: {fileID: 6440311168380145162}
+    - target: {fileID: 3078715358861289232, guid: 36d266caf85914fbfa0c32937c98adda,
+        type: 3}
+      propertyPath: isPaused
+      value: 
+      objectReference: {fileID: 11400000, guid: b1117ae99c24e41779a01f60dd45fd36,
+        type: 2}
     - target: {fileID: 3078715358861289233, guid: 36d266caf85914fbfa0c32937c98adda,
         type: 3}
       propertyPath: m_RootOrder
@@ -3262,6 +3268,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 701734848, guid: 34cbfa1c9148b4e4da6fa52e631bfdee, type: 3}
+      propertyPath: isPaused
+      value: 
+      objectReference: {fileID: 11400000, guid: b1117ae99c24e41779a01f60dd45fd36,
+        type: 2}
     - target: {fileID: 3238722280253148754, guid: 34cbfa1c9148b4e4da6fa52e631bfdee,
         type: 3}
       propertyPath: m_Pivot.x
@@ -3478,7 +3489,7 @@ PrefabInstance:
     - target: {fileID: 5002252810971290413, guid: a98b1d6a4241e41acbd93b5e22bb92b4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5002252810971290413, guid: a98b1d6a4241e41acbd93b5e22bb92b4,
         type: 3}
@@ -3698,7 +3709,7 @@ PrefabInstance:
     - target: {fileID: 8776522107424159829, guid: 59c26a48af3b741f880ec2c5b503f443,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8776522107424159829, guid: 59c26a48af3b741f880ec2c5b503f443,
         type: 3}
@@ -3800,11 +3811,6 @@ PrefabInstance:
       propertyPath: wrenchBox
       value: 
       objectReference: {fileID: 1211464806}
-    - target: {fileID: 8776522107424159830, guid: 59c26a48af3b741f880ec2c5b503f443,
-        type: 3}
-      propertyPath: isRealWorld
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8776522107424159830, guid: 59c26a48af3b741f880ec2c5b503f443,
         type: 3}
       propertyPath: rulerPopups

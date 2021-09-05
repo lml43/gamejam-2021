@@ -10,7 +10,6 @@ public class StateControl : MonoBehaviour
     public bool hasChemical;
     public bool didFireBoxBroke;
     public bool didWrenchBoxBroke;
-    public bool hasPipe;
     public bool hasFire;
     public bool hasGun;
     public bool hasWrench;
@@ -18,6 +17,8 @@ public class StateControl : MonoBehaviour
     public bool lootHeart1;
     public bool lootHeart2;
     public Vector3 playerPos;
+    public string[] itemArr = new string[6];
+    public string[] itemArr2 = new string[6];
 
     [Header("Scriptable Objects")]
 	[Space]
@@ -39,10 +40,8 @@ public class StateControl : MonoBehaviour
     }
 
     public void ResetState() {
-        hasRuler = false;
         hasChemical = false;
         didFireBoxBroke = false;
-        hasPipe = false;
         hasFire = false;
         hasGun = false;
         hasWrench = false;
@@ -51,6 +50,7 @@ public class StateControl : MonoBehaviour
         lootHeart2 = false;
         didWrenchBoxBroke = false;
         playerPos = new Vector3(-11f, -7f, 0);
+        itemArr = null;
 
         isFirstLoad.runtimeValue = isFirstLoad.initialValue;
         playerHealth.runtimeValue = playerHealth.initialValue;

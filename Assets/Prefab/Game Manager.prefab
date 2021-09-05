@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc523870f97f04ad6a5a8fbe8f2f5e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: {fileID: 11400000, guid: b1117ae99c24e41779a01f60dd45fd36, type: 2}
   isFirstLoad: {fileID: 11400000, guid: 69e44f7e9e79a4ad9977498ed22585f0, type: 2}
   player: {fileID: 0}
   isRealWorld: 1
@@ -51,9 +52,13 @@ MonoBehaviour:
   pipe: {fileID: 0}
   wrench: {fileID: 0}
   fireBox: {fileID: 0}
+  wrenchBox: {fileID: 0}
   heart1: {fileID: 0}
   heart2: {fileID: 0}
   gunPopups: {fileID: 0}
   rulerPopups: {fileID: 0}
+  telepopups: {fileID: 0}
+  wonPopups: {fileID: 0}
+  lostPopups: {fileID: 0}
   playerHealth: {fileID: 11400000, guid: 18eb1298b5518420aa09491ea68a5c05, type: 2}
   heartValue: 50

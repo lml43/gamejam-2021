@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class StudentAI : MonoBehaviour
 {
-
+    public BoolValue isPaused;
     public int speed;
     public float nextWaypointDistance = 3f;
 
@@ -56,6 +56,11 @@ public class StudentAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (isPaused.runtimeValue) {
+            rb.velocity = Vector2.zero;
+            return;
+        }
+        
         if (student.currentState == StudentState.stagger) {
             return;
         }

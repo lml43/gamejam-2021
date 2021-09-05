@@ -7,6 +7,8 @@ public class EnemyAI : MonoBehaviour
 {
 
     public IntValue speed;
+    public BoolValue isPaused;
+
     public float nextWaypointDistance = 3f;
     public float chaseRadius;
     public float attackRadius;
@@ -63,6 +65,11 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (isPaused.runtimeValue) {
+            rb.velocity = Vector2.zero;
+            return;
+        }
+
         if (path == null) {
             return;
         }

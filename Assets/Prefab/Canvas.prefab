@@ -371,6 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   availableTime: {fileID: 11400000, guid: ef608beb46f734ee08640c24ab6336f3, type: 2}
   textUI: {fileID: 1756708239}
+  isPaused: {fileID: 11400000, guid: b1117ae99c24e41779a01f60dd45fd36, type: 2}
 --- !u!114 &1459008702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -561,7 +562,7 @@ RectTransform:
   m_GameObject: {fileID: 1505883671781725614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 3238722281369494014}
   m_RootOrder: 6
@@ -1144,7 +1145,7 @@ RectTransform:
   m_GameObject: {fileID: 3238722280684757326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 3238722281369494014}
   m_RootOrder: 4
@@ -1219,7 +1220,7 @@ RectTransform:
   m_GameObject: {fileID: 3238722280775437229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 3238722281369494014}
   m_RootOrder: 3
@@ -1294,7 +1295,7 @@ RectTransform:
   m_GameObject: {fileID: 3238722280827037698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 3238722281369494014}
   m_RootOrder: 1
@@ -1369,7 +1370,7 @@ RectTransform:
   m_GameObject: {fileID: 3238722281354222853}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 3238722281369494014}
   m_RootOrder: 5
@@ -1561,7 +1562,7 @@ RectTransform:
   m_GameObject: {fileID: 3238722281519406153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 3238722281369494014}
   m_RootOrder: 2
@@ -1853,7 +1854,7 @@ RectTransform:
   m_GameObject: {fileID: 4680749561683098719}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 3238722281369494014}
   m_RootOrder: 7
@@ -1988,6 +1989,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupsHamburger: {fileID: 8918468157131339386}
   popupsInfo: {fileID: 5002974272185443409}
+  isPaused: {fileID: 11400000, guid: b1117ae99c24e41779a01f60dd45fd36, type: 2}
+  isFirstLoad: {fileID: 11400000, guid: 69e44f7e9e79a4ad9977498ed22585f0, type: 2}
 --- !u!1 &5582664970049837604
 GameObject:
   m_ObjectHideFlags: 0

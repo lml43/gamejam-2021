@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3063e71c1d35407894e0a71a4528634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: {fileID: 11400000, guid: b1117ae99c24e41779a01f60dd45fd36, type: 2}
   player: {fileID: 1165163442}
   moveSpeed: 1
   chargeSpeed: 100

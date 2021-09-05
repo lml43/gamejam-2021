@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Lootable : MonoBehaviour
 {
+
+    public bool isTutorial;
+
     public GameObject itemGFX;
     public GameObject fireBox;
     public GameObject wrenchBox;
@@ -27,27 +30,22 @@ public class Lootable : MonoBehaviour
 
             FindObjectOfType<AudioManager>().Play("Loot");
 
+            if (isTutorial) {
+                gameObject.SetActive(false);
+                TutorialManager.looted = true;
+                return;
+            }
+
             if (gameObject.CompareTag("Ruler")) {
                 gameManager.ShowRulerPopups();
                 player.GetComponent<Animator>().SetBool("hasRuler", true);
-                StateControl.Instance.hasRuler = true;
             }
 
             if (gameObject.CompareTag("FireExtinguisher")) {
-                StateControl.Instance.hasFire = true;
                 fireBox.GetComponent<Animator>().SetBool("looted", true);
             }
 
-            if (gameObject.CompareTag("Chemical")) {
-                StateControl.Instance.hasChemical = true;
-            }
-
-            if (gameObject.CompareTag("Pipe")) {
-                StateControl.Instance.hasPipe = true;
-            }
-
             if (gameObject.CompareTag("Wrench")) {
-                StateControl.Instance.hasWrench = true;
                 wrenchBox.GetComponent<Animator>().SetBool("looted", true);
             }
 
@@ -68,8 +66,8 @@ public class Lootable : MonoBehaviour
             }
 
             gameObject.SetActive(false);
-            int listCount = gameManager.AddItem(itemGFX);
-            ShowItem(itemGFX, listCount);
+            int index = gameManager.AddItem(StateControl.Instance.itemArr, gameObject.tag);
+            ShowItem(itemGFX, index);
             gameManager.CheckGunMaterials();
         }
     }
@@ -86,14 +84,10 @@ public class Lootable : MonoBehaviour
         }
     }
 
-    private void ShowItem(GameObject item, int itemCount) {
-        // itemList.Add(item);
-
-        Vector3 pos = new Vector3(46 * (itemCount - 3), 0, 0);
+    private void ShowItem(GameObject item, int index) {
+        Vector3 pos = new Vector3(46 * (index - 2), 0, 0);
         item.GetComponent<RectTransform>().localPosition = pos;
-
         item.SetActive(true);
-        // CheckGunMaterials();
     }
 
 

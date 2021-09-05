@@ -348,6 +348,7 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: d147de58d28ad470eaf17922baa8e45f, type: 2}
   bulletObject: {fileID: 9057051997042409317, guid: a67b83adb71714874bcfe0018cc784af,
     type: 3}
+  isPaused: {fileID: 11400000, guid: b1117ae99c24e41779a01f60dd45fd36, type: 2}
 --- !u!114 &3078715358861289228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0b7aeeee7494a138cd5ab564a14640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTutorial: 0
   playerHealth: {fileID: 11400000, guid: 18eb1298b5518420aa09491ea68a5c05, type: 2}
   currentState: {fileID: 11400000, guid: d147de58d28ad470eaf17922baa8e45f, type: 2}
   untouchableTime: 3
