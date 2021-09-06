@@ -19,8 +19,7 @@ public class Enemy : MonoBehaviour
     public int baseAttack;
     public float moveSpeed;
     public float deadTime = 2f;
-    public FloatValue maxHealth;
-    public BoolValue isPaused;
+    public IntValue health;
 
     public void ChangeState(EnemyState newState) {
         if (newState != currentState) {
@@ -28,15 +27,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Knock(Rigidbody2D myRb, float knockTime, float damage) {
+    public void Knock(Rigidbody2D myRb, float knockTime, int damage) {
         StartCoroutine(KnockCo(myRb, knockTime));
         TakeDamage(myRb, damage);
     }
 
-    private void TakeDamage(Rigidbody2D myRb, float damage) {
-        maxHealth.runtimeValue -= damage;
+    private void TakeDamage(Rigidbody2D myRb, int damage) {
+        health.runtimeValue -= damage;
 
-        if (maxHealth.runtimeValue <= 0) {
+        if (health.runtimeValue <= 0) {
             this.gameObject.GetComponent<Animator>().SetBool("isDead", true);
             myRb.velocity = Vector2.zero;
             StartCoroutine(Inactive(deadTime));

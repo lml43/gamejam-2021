@@ -56,8 +56,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(StateControl.Instance.itemArr.Length);
-
         InitItemsGFX();
     }
 

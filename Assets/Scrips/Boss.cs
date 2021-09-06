@@ -10,7 +10,7 @@ public class Boss : MonoBehaviour
   public float moveSpeed = 3.5f;
   public float chargeSpeed = 6f;
   public Transform[] moveSpots;
-  public float maxHealth = 10f;
+  public IntValue health;
   public float maxChaseTime = 5f;
   public float timeToCharge = 2f;
 
@@ -118,13 +118,13 @@ public class Boss : MonoBehaviour
     body.MovePosition((Vector2)transform.position + (direction * chargeSpeed * Time.deltaTime));
   }
 
-  public void TakeDamage(float damage) {
-    maxHealth -= damage;
+  public void TakeDamage(int damage) {
+    health.runtimeValue -= damage;
     // chaseTime = maxChaseTime;
 
     StartCoroutine(AngryCo());
 
-    if (maxHealth <= 0) {
+    if (health.runtimeValue <= 0) {
       // TODO: Endgame
       StartCoroutine(EndGame());
     }
@@ -160,7 +160,7 @@ public class Boss : MonoBehaviour
     anim.SetBool("isAngry", true);
     FindObjectOfType<AudioManager>().Play("Angry");
     yield return new WaitForSeconds(1.2f);
-    if (maxHealth > 0) {
+    if (health.runtimeValue > 0) {
       Attack(target);
     }
   }
